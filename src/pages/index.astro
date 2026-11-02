@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteNav from "@modules/nav/components/SiteNav.astro";
+import Hero from "@modules/hero/components/Hero.astro";
+import StatsBand from "@modules/proof/components/StatsBand.astro";
+import BrandsWall from "@modules/proof/components/BrandsWall.astro";
+import Pain from "@modules/pain/components/Pain.astro";
+import Mechanism from "@modules/method/components/Mechanism.astro";
+import Pillars from "@modules/method/components/Pillars.astro";
+import ProductIntro from "@modules/product/components/ProductIntro.astro";
+import Curriculum from "@modules/curriculum/components/Curriculum.astro";
+import EditingMachine from "@modules/editing-machine/components/EditingMachine.astro";
+import Cases from "@modules/cases/components/Cases.astro";
+import Audience from "@modules/audience/components/Audience.astro";
+import Mentors from "@modules/mentors/components/Mentors.astro";
+import Offer from "@modules/offer/components/Offer.astro";
+import Guarantee from "@modules/offer/components/Guarantee.astro";
+import Faq from "@modules/faq/components/Faq.astro";
+import FinalCta from "@modules/final-cta/components/FinalCta.astro";
+import SiteFooter from "@modules/footer/components/SiteFooter.astro";
+import MobileBuyBar from "@modules/offer/components/MobileBuyBar.astro";
+---
+<BaseLayout path="/">
+  <SiteNav />
+  <main id="conteudo-principal">
+    <Hero />
+    <StatsBand />
+    <BrandsWall />
+    <Pain />
+    <Mechanism />
+    <Pillars />
+    <ProductIntro />
+    <Curriculum />
+    <EditingMachine />
+    <Cases />
+    <Audience />
+    <Mentors />
+    <Offer />
+    <Guarantee />
+    <Faq />
+    <FinalCta />
+  </main>
+  <SiteFooter />
+  <MobileBuyBar />
+</BaseLayout>

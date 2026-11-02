@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+import Button from "@shared/ui/Button.astro";
+import Icon from "@shared/ui/Icon.astro";
+import type { IconName } from "@shared/ui/icons";
+import { offer } from "@modules/offer/data/offer";
+import cover from "../assets/ebook-cover.webp";
+import pageBio from "../assets/page-bio.webp";
+import pageAberturas from "../assets/page-aberturas.webp";
+
+const formats = ["E-book de 42 páginas", "Aula de 15 a 20 min", "30 ideias de Reels", "Plano de 7 dias", "Máquina de Edição"];
+const pieces: { icon: IconName; title: string; body: string }[] = [
+  { icon: "userFocus", title: "Conta pronta", body: "A configuração do perfil, feita antes do primeiro vídeo." },
+  { icon: "filmSlate", title: "Conteúdo que segura a atenção", body: "Assunto, abertura, constância e leitura dos números." },
+  { icon: "magicWand", title: "Edição resolvida", body: "Roteiro, edição e postagem com IA, na Máquina de Edição." },
+];
+---
+<section id="produto" aria-labelledby="produto-titulo" class="section relative overflow-hidden">
+  <div class="wrap grid items-center gap-16 lg:grid-cols-12">
+    <!-- Mockup: capa real do e-book com duas páginas internas atrás -->
+    <div class="product-stage relative mx-auto aspect-[1/1.05] w-full max-w-[520px] [perspective:1600px] lg:col-span-6" aria-hidden="true">
+      <div aria-hidden="true" class="absolute inset-[12%] rounded-full bg-accent/15 blur-[90px]"></div>
+      <Image src={pageAberturas} alt="" widths={[360, 600]} sizes="(min-width: 1024px) 22vw, 50vw" loading="lazy" decoding="async"
+        class="absolute left-[2%] top-[14%] w-[52%] -rotate-[9deg] rounded-md shadow-[0_30px_60px_-20px_rgb(0_0_0/0.9)] ring-1 ring-black/10" />
+      <Image src={pageBio} alt="" widths={[360, 600]} sizes="(min-width: 1024px) 22vw, 50vw" loading="lazy" decoding="async"
+        class="absolute right-[0%] top-[18%] w-[52%] rotate-[8deg] rounded-md shadow-[0_30px_60px_-20px_rgb(0_0_0/0.9)] ring-1 ring-black/10" />
+      <div class="product-book absolute left-1/2 top-[4%] w-[60%] -translate-x-1/2 [transform-style:preserve-3d]">
+        <div class="relative [transform:rotateY(-14deg)_rotateX(4deg)] [transform-style:preserve-3d]">
+          <Image src={cover} alt="" widths={[420, 700, 1000]} sizes="(min-width: 1024px) 26vw, 60vw" loading="lazy" decoding="async"
+            class="relative w-full rounded-r-md rounded-l-sm shadow-[30px_40px_80px_-20px_rgb(0_0_0/0.95)] ring-1 ring-paper/10" />
+          <div class="absolute inset-y-0 left-0 w-[5%] rounded-l-sm bg-gradient-to-r from-black/60 via-paper/10 to-transparent"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-6" data-reveal>
+      <h2 id="produto-titulo" class="text-[2.3rem] font-extrabold leading-[1.03] md:text-[3.1rem]">
+        PUBLICA: o processo do Vinicius, <span class="hl">num guia prático.</span>
+      </h2>
+      <p class="mt-6 max-w-[52ch] text-lg leading-relaxed text-soft">
+        Tudo o que ele aplica no próprio perfil e no de clientes, em linguagem simples e na ordem certa.
+        Você não precisa saber marketing digital. O material principal se consome em cerca de 1 hora. O resto é aplicar.
+      </p>
+      <ul class="mt-7 flex flex-wrap gap-2" aria-label="Formatos inclusos">
+        {formats.map((f) => (
+          <li class="rounded-full px-4 py-2 text-sm font-medium text-paper/85 ring-1 ring-inset ring-paper/15">{f}</li>
+        ))}
+      </ul>
+      <ul class="mt-10 grid gap-5">
+        {pieces.map((p) => (
+          <li class="flex items-start gap-4">
+            <span class="grid size-11 shrink-0 place-items-center rounded-full bg-accent text-ink"><Icon name={p.icon} class="size-5" /></span>
+            <p class="leading-relaxed text-soft"><strong class="block font-display text-[1.05rem] text-paper">{p.title}</strong>{p.body}</p>
+          </li>
+        ))}
+      </ul>
+      <div class="mt-10"><Button href={offer.anchor}>{offer.ctaLabel}</Button></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap, ScrollTrigger, motionEnabled } from "@shared/motion/motion";
+  if (motionEnabled()) {
+    gsap.registerPlugin(ScrollTrigger);
+    // O livro "assenta" enquanto a seção entra: chama atenção para o produto.
+    gsap.fromTo(".product-book", { y: 40, rotate: -3 }, {
+      y: -10, rotate: 0, ease: "none",
+      scrollTrigger: { trigger: ".product-stage", start: "top bottom", end: "bottom top", scrub: 0.8 },
+    });
+  }
+</script>

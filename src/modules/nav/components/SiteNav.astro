@@ -1,0 +1,27 @@
+---
+import Wordmark from "@shared/brand/Wordmark.astro";
+import Button from "@shared/ui/Button.astro";
+import { nav } from "@shared/config/site";
+import { offer } from "@modules/offer/data/offer";
+---
+<header class="fixed inset-x-0 top-0 z-40">
+  <div class="border-b border-paper/[0.07] bg-ink/75 backdrop-blur-xl backdrop-saturate-150">
+    <nav class="wrap flex h-16 items-center justify-between gap-6" aria-label="Principal">
+      <a href="#topo" class="shrink-0 text-paper" aria-label="PUBLICA, voltar ao topo">
+        <Wordmark class="h-[22px] w-auto md:h-6" />
+      </a>
+      <ul class="hidden items-center gap-7 lg:flex">
+        {nav.map((item) => (
+          <li>
+            <a href={item.href} class="font-display text-[0.82rem] font-semibold text-paper/65 transition-colors hover:text-paper">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <Button href={offer.anchor} size="md" icon={null} class="px-4 text-[0.82rem] md:px-5 md:text-[0.88rem]">
+        {offer.ctaLabel}
+      </Button>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+import Icon from "@shared/ui/Icon.astro";
+import { adjustments } from "../data/method";
+import profileAnnotated from "../assets/perfil-anotado.webp";
+---
+<section id="metodo" aria-labelledby="mecanismo-titulo" class="section">
+  <div class="wrap grid gap-14 lg:grid-cols-12 lg:gap-16">
+    <div class="lg:col-span-5">
+      <div class="lg:sticky lg:top-28" data-reveal>
+        <h2 id="mecanismo-titulo" class="text-[2.3rem] font-extrabold leading-[1.02] md:text-[3.25rem]">
+          A configuração que <span class="hl">quase ninguém faz.</span>
+        </h2>
+        <p class="mt-6 font-display text-xl font-bold leading-snug text-paper md:text-2xl">
+          O vídeo traz a pessoa. O perfil decide se ela fica.
+        </p>
+        <p class="mt-4 max-w-[46ch] leading-relaxed text-soft">
+          Muita visita no perfil e pouco seguidor quer dizer uma coisa: o vídeo atraiu, mas o perfil não convenceu.
+          Por isso o PUBLICA começa pela conta, não pela câmera. São ajustes simples, feitos no próprio celular.
+        </p>
+        <figure class="mt-8">
+          <Image
+            src={profileAnnotated}
+            alt="Página do e-book com o perfil do Vinicius anotado: foto com rosto visível, nome fácil de achar na busca, bio que diz quem ele é e link de contato"
+            widths={[520, 900, 1400]}
+            sizes="(min-width: 1024px) 34vw, 92vw"
+            loading="lazy"
+            decoding="async"
+            class="w-full rounded-2xl"
+          />
+          <figcaption class="mt-3 text-sm text-mute">
+            Trecho da Parte 3 do e-book: o perfil do Vinicius, ajuste por ajuste.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7">
+      <ol class="grid gap-4">
+        {adjustments.map((a) => (
+          <li data-reveal class="card group flex gap-5 p-6 transition-colors duration-500 hover:border-accent/35 md:p-7">
+            <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-paper/[0.06] text-paper transition-colors duration-500 group-hover:bg-accent group-hover:text-ink">
+              <Icon name={a.icon} class="size-6" />
+            </span>
+            <div>
+              <h3 class="text-lg font-bold tracking-[-0.02em] md:text-xl">{a.title}</h3>
+              <p class="mt-2 leading-relaxed text-soft">{a.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <p data-reveal class="mt-8 flex items-center gap-3 text-soft">
+        <Icon name="clock" class="size-5 text-accent" />
+        <span>Leva cerca de <strong class="text-paper">40 minutos</strong>. É o Dia 1 do plano de ação.</span>
+      </p>
+    </div>
+  </div>
+</section>

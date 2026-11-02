@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+.wrangler/
+.DS_Store
+*.log
+
+# Produto pago (e-book). Fica só local, nunca no repositório nem no build.
+PUBLICA_2.0.pdf
+*.pdf

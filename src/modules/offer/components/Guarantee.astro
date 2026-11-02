@@ -1,0 +1,22 @@
+---
+import { offer } from "../data/offer";
+---
+<section aria-labelledby="garantia-titulo" class="section relative overflow-hidden">
+  <div class="wrap flex flex-col items-center text-center">
+    <div data-reveal class="relative grid size-44 place-items-center rounded-full border border-accent/40 md:size-52">
+      <div class="absolute inset-3 rounded-full border border-paper/10"></div>
+      <div>
+        <p class="num text-7xl font-black leading-none md:text-8xl">{offer.guaranteeDays}</p>
+        <p class="mt-1 font-display text-xs font-bold uppercase tracking-[0.2em] text-accent">dias de garantia</p>
+      </div>
+    </div>
+    <h2 id="garantia-titulo" data-reveal class="mt-10 text-[2.2rem] font-extrabold leading-[1.05] md:text-5xl">
+      {offer.guaranteeDays} dias para decidir com calma.
+    </h2>
+    <p data-reveal class="mt-6 max-w-[60ch] text-lg leading-relaxed text-soft">
+      Compre, leia o e-book, assista à aula e faça o Dia 1 do plano. Se achar que o PUBLICA não é para você,
+      peça o reembolso em até {offer.guaranteeDays} dias e receba o valor de volta, sem precisar justificar.
+      É o direito de arrependimento previsto no Código de Defesa do Consumidor.
+    </p>
+  </div>
+</section>

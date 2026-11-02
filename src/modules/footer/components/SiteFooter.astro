@@ -1,0 +1,34 @@
+---
+import Wordmark from "@shared/brand/Wordmark.astro";
+import { site } from "@shared/config/site";
+const year = 2026;
+---
+<footer class="border-t border-paper/10 pb-28 pt-14 md:pb-14">
+  <div class="wrap">
+    <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+      <div class="flex items-center gap-4">
+        <Wordmark class="h-6 w-auto text-paper" />
+        <p class="text-sm text-mute">Guia de crescimento orgânico no Instagram, por {site.author.name}</p>
+      </div>
+      <a href={site.author.instagram} target="_blank" rel="noopener" class="text-sm text-soft hover:text-paper">{site.author.handle}</a>
+    </div>
+
+    <div class="mt-10 grid gap-4 text-xs leading-relaxed text-mute md:max-w-[90ch]">
+      <p>
+        Os resultados mostrados nesta página são do perfil @viniciuscampana e de perfis de clientes com quem ele trabalhou, conforme
+        registrado nos prints do material. Não são promessa nem garantia de resultado. Não existe número garantido de seguidores nem
+        viralização garantida: o resultado depende do seu tema, da execução, do público e de fatores que mudam com o tempo.
+      </p>
+      <p>As marcas citadas aparecem como registro de trabalhos realizados e não patrocinam nem endossam o PUBLICA.</p>
+      <p>
+        Este site não é afiliado, patrocinado ou endossado pelo Instagram, Facebook, TikTok ou Meta. Instagram e Facebook são marcas da
+        Meta Platforms, Inc.
+      </p>
+    </div>
+
+    <div class="mt-10 flex flex-col gap-3 border-t border-paper/10 pt-6 text-xs text-mute md:flex-row md:items-center md:justify-between">
+      <p>© {year} PUBLICA. Todos os direitos reservados.</p>
+      <a href={site.credit.href} target="_blank" rel="noopener" class="transition-colors hover:text-paper">{site.credit.label}</a>
+    </div>
+  </div>
+</footer>

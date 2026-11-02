@@ -1,0 +1,43 @@
+// Estudos de caso do e-book PUBLICA 2.0 (Parte 10, p.32 a p.36). Números como registrados nos prints.
+export const cases = [
+  {
+    file: "bruder",
+    name: "Brüder Multimarcas",
+    niche: "Moda masculina",
+    headline: "+314 mil",
+    unit: "seguidores",
+    detail: "De cerca de 11 mil para 325 mil seguidores em 4 meses.",
+    lesson: "Um nicho claro ajuda a pessoa certa a entender rápido por que seguir.",
+    alt: "Estudo de caso Brüder Multimarcas: de 11 mil para 325 mil seguidores, mais 314 mil em 4 meses",
+  },
+  {
+    file: "rizzare",
+    name: "Rizzare Moda Masculina",
+    niche: "Moda masculina",
+    headline: "+24,6 mil",
+    unit: "seguidores",
+    detail: "De cerca de 16 mil para 40,6 mil seguidores em 3 meses.",
+    lesson: "O conteúdo precisa conversar direto com as dúvidas e referências do seu público.",
+    alt: "Estudo de caso Rizzare Moda Masculina: de 16 mil para 40,6 mil seguidores em 3 meses",
+  },
+  {
+    file: "yara",
+    name: "Yara Lima",
+    niche: "Fonoaudióloga",
+    headline: "10x",
+    unit: "a audiência",
+    detail: "De 200 para 2.009 seguidores em 2 meses.",
+    lesson: "Profissional liberal também cresce com conteúdo. Cada nicho tem seu ritmo.",
+    alt: "Estudo de caso Yara Lima, fonoaudióloga: de 200 para 2.009 seguidores em 2 meses",
+  },
+  {
+    file: "emporio",
+    name: "Empório Sete Prime",
+    niche: "Moda masculina",
+    headline: "2.037.335",
+    unit: "visualizações",
+    detail: "Antes, cerca de 300 mil visualizações por mês. No painel de cerca de 30 dias, mais de 2 milhões.",
+    lesson: "Visualização importa, mas leia junto com os seguidores ganhos e a resposta do público.",
+    alt: "Estudo de caso Empório Sete Prime: 2.037.335 visualizações no painel de cerca de 30 dias",
+  },
+] as const;

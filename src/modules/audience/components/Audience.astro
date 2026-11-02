@@ -1,0 +1,50 @@
+---
+import Icon from "@shared/ui/Icon.astro";
+
+// Fonte: e-book p.3, p.26, p.30, p.42 e briefing (o que não está incluso).
+const forYou = [
+  "Está começando e quer montar o perfil do jeito certo desde o primeiro post.",
+  "Tem loja e quer mostrar produto e atrair cliente sem pagar anúncio.",
+  "Presta serviço, tem trabalho bom para mostrar e não sabe transformar isso em vídeo.",
+  "É profissional liberal e quer ser lembrado como referência no seu assunto.",
+  "Já publica, mas sente que os vídeos não chegam a gente nova.",
+];
+const notForYou = [
+  "Procura número garantido de seguidores ou viralização garantida. Isso não existe.",
+  "Quer comprar seguidores ou copiar vídeo de outra conta.",
+  "Precisa de grupo de WhatsApp, suporte individual, análise de perfil ou encontros ao vivo.",
+  "Quer só ler e não aplicar. Saber não é o mesmo que fazer.",
+];
+---
+<section aria-labelledby="publico-titulo" class="section bg-ink-2">
+  <div class="wrap">
+    <h2 id="publico-titulo" data-reveal class="max-w-2xl text-[2.3rem] font-extrabold leading-[1.03] md:text-5xl">
+      É para você? <span class="text-paper/45">Seja honesto aqui.</span>
+    </h2>
+
+    <div class="mt-14 grid gap-5 lg:grid-cols-12">
+      <div data-reveal class="relative overflow-hidden rounded-[24px] bg-paper p-8 text-ink md:p-10 lg:col-span-7">
+        <h3 class="text-2xl font-extrabold">O PUBLICA é para você se</h3>
+        <ul class="mt-7 grid gap-5">
+          {forYou.map((t) => (
+            <li class="flex gap-3.5">
+              <span class="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full bg-accent text-ink"><Icon name="check" class="size-4" /></span>
+              <span class="text-[1.05rem] leading-relaxed text-ink/85">{t}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div data-reveal class="rounded-[24px] border border-dashed border-paper/20 p-8 md:p-10 lg:col-span-5">
+        <h3 class="text-2xl font-extrabold text-paper/90">Não é para você se</h3>
+        <ul class="mt-7 grid gap-5">
+          {notForYou.map((t) => (
+            <li class="flex gap-3.5">
+              <span class="mt-0.5 grid size-7 shrink-0 place-items-center rounded-full bg-paper/10 text-paper/70"><Icon name="x" class="size-4" /></span>
+              <span class="leading-relaxed text-soft">{t}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

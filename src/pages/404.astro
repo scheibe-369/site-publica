@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Wordmark from "@shared/brand/Wordmark.astro";
+import Button from "@shared/ui/Button.astro";
+---
+<BaseLayout title="Página não encontrada | PUBLICA" noindex>
+  <main id="conteudo-principal" class="grid min-h-[100dvh] place-items-center px-5">
+    <div class="flex max-w-xl flex-col items-center text-center">
+      <a href="/" aria-label="PUBLICA, página inicial"><Wordmark class="h-8 w-auto text-paper" /></a>
+      <p class="num mt-14 text-8xl font-black text-paper/15">404</p>
+      <h1 class="mt-4 text-4xl font-extrabold">Essa página não existe.</h1>
+      <p class="mt-4 text-lg text-soft">O link pode estar errado ou ter mudado. O conteúdo que você procura está na página principal.</p>
+      <div class="mt-10"><Button href="/">Voltar para o PUBLICA</Button></div>
+    </div>
+  </main>
+</BaseLayout>

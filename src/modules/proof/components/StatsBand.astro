@@ -1,0 +1,25 @@
+---
+import { stats, secondaryStats } from "../data/proof";
+---
+<section aria-labelledby="numeros-titulo" class="relative pt-12 lg:pt-16">
+  <div class="wrap">
+    <h2 id="numeros-titulo" class="sr-only">Os números do Vinicius Campana</h2>
+    <dl class="grid grid-cols-2 gap-px overflow-hidden rounded-[20px] bg-paper/10 ring-1 ring-paper/10 lg:grid-cols-4">
+      {stats.map((s) => (
+        <div data-reveal class="flex flex-col-reverse justify-end gap-3 bg-ink p-5 sm:p-7 lg:p-8">
+          <dt class="max-w-[24ch] text-sm leading-snug text-soft md:text-[0.95rem]">{s.label}</dt>
+          <dd class="num leading-[0.92] text-paper">
+            <span class="block text-[2.6rem] font-black sm:text-6xl lg:text-[4rem]">{s.prefix}<span data-count={s.count}>{s.count}</span></span>
+            <span class="block text-xl font-extrabold text-accent sm:text-2xl lg:text-[1.7rem]">{s.unit}</span>
+          </dd>
+        </div>
+      ))}
+    </dl>
+    <div class="mt-5 flex flex-col gap-3 text-sm text-mute md:flex-row md:items-center md:justify-between">
+      <ul class="flex flex-wrap gap-x-5 gap-y-1 text-soft">
+        {secondaryStats.map((s) => <li>{s}</li>)}
+      </ul>
+      <p>Números do perfil @viniciuscampana, novembro de 2026.</p>
+    </div>
+  </div>
+</section>

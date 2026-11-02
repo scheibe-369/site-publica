@@ -1,0 +1,63 @@
+---
+import { Image } from "astro:assets";
+import { brands } from "../data/proof";
+import globo from "../assets/brands/globo.webp";
+
+const files = import.meta.glob<{ default: ImageMetadata }>("../assets/brands/*.webp", { eager: true });
+const logo = (f: string) => files[`../assets/brands/${f}.webp`].default;
+const loop = [...brands, ...brands];
+---
+<section aria-labelledby="marcas-titulo" class="section overflow-hidden">
+  <div class="wrap grid items-end gap-10 lg:grid-cols-12">
+    <div class="lg:col-span-6" data-reveal>
+      <h2 id="marcas-titulo" class="text-3xl font-extrabold leading-[1.05] md:text-[2.75rem]">
+        Conteúdo orgânico que <span class="hl">abriu portas.</span>
+      </h2>
+      <p class="mt-5 max-w-[48ch] text-soft md:text-lg">
+        Publicidades com marcas de cosméticos, ferramentas, carros, bancos, tecnologia, delivery e bebidas. E uma participação na TV Globo.
+      </p>
+    </div>
+    <div class="lg:col-span-6" data-reveal>
+      <div class="card flex flex-col gap-5 p-4 sm:flex-row sm:items-center sm:p-5">
+        <Image
+          src={globo}
+          alt="Logos da TV Globo e do Mais Você com a vinheta do quadro Dando um Retoque"
+          widths={[320, 647]}
+          sizes="(min-width: 640px) 300px, 90vw"
+          loading="lazy"
+          decoding="async"
+          class="w-full rounded-xl sm:w-[300px]"
+        />
+        <p class="text-[0.95rem] leading-relaxed text-soft">
+          <strong class="block font-display text-paper">TV Globo</strong>
+          Participação no quadro “Dando um Retoque”, do Mais Você, com Ana Maria Braga.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="mt-14 [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]"
+    role="region"
+    aria-label="Marcas com quem o Vinicius já fez publicidade"
+  >
+    <ul class="flex w-max animate-marquee gap-4 hover:[animation-play-state:paused]">
+      {loop.map((b, i) => (
+        <li class="h-[76px] w-[176px] shrink-0 overflow-hidden rounded-2xl bg-white" aria-hidden={i >= brands.length ? "true" : undefined}>
+          <Image
+            src={logo(b.file)}
+            alt={i >= brands.length ? "" : b.name}
+            widths={[176, 352]}
+            sizes="176px"
+            loading="lazy"
+            decoding="async"
+            class="size-full object-contain px-4 py-2 opacity-80 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0"
+          />
+        </li>
+      ))}
+    </ul>
+  </div>
+  <p class="wrap mt-6 text-xs text-mute">
+    As marcas aparecem como registro de trabalhos realizados. Nenhuma delas patrocina ou endossa o PUBLICA.
+  </p>
+</section>

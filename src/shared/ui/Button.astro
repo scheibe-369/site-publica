@@ -1,0 +1,49 @@
+---
+import Icon from "./Icon.astro";
+import type { IconName } from "./icons";
+
+interface Props {
+  href: string;
+  variant?: "primary" | "ghost" | "dark";
+  size?: "md" | "lg";
+  icon?: IconName | null;
+  class?: string;
+  external?: boolean;
+  [key: string]: unknown;
+}
+const {
+  href,
+  variant = "primary",
+  size = "lg",
+  icon = "arrowRight",
+  class: cls = "",
+  external = false,
+  ...rest
+} = Astro.props;
+
+const base =
+  "group relative inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full font-display font-extrabold tracking-[-0.01em] transition-[transform,background-color,color,box-shadow] duration-300 ease-[var(--ease-out-expo)] active:scale-[0.98] select-none";
+const sizes = {
+  md: "h-11 px-5 text-[0.9rem]",
+  lg: "h-14 px-7 text-base md:h-[3.75rem] md:px-8 md:text-[1.05rem]",
+};
+const variants = {
+  // Texto #0A0A0A sobre #FF3B1F: contraste 5,6:1 (AA).
+  primary:
+    "bg-accent text-ink shadow-[0_10px_40px_-12px_rgb(255_59_31/0.6),inset_0_1px_0_rgb(255_255_255/0.25)] hover:bg-[#ff5236] hover:-translate-y-0.5",
+  ghost:
+    "text-paper ring-1 ring-inset ring-paper/20 hover:ring-paper/45 hover:bg-paper/[0.04]",
+  dark: "bg-ink text-paper hover:bg-graphite hover:-translate-y-0.5",
+};
+---
+<a
+  href={href}
+  class:list={[base, sizes[size], variants[variant], cls]}
+  {...(external ? { target: "_blank", rel: "noopener" } : {})}
+  {...rest}
+>
+  <slot />
+  {icon && (
+    <Icon name={icon} class="size-[1.1em] transition-transform duration-300 ease-[var(--ease-out-expo)] group-hover:translate-x-0.5" />
+  )}
+</a>

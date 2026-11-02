@@ -1,0 +1,26 @@
+---
+import Button from "@shared/ui/Button.astro";
+import { offer } from "../data/offer";
+---
+<!-- Barra de compra fixa no mobile: aparece depois do hero e some quando a oferta está na tela. -->
+<div id="buy-bar" class="fixed inset-x-0 bottom-0 z-30 translate-y-full border-t border-paper/10 bg-ink/90 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-xl transition-transform duration-500 ease-[var(--ease-out-expo)] md:hidden" aria-hidden="true">
+  <Button href={offer.anchor} class="w-full" tabindex="-1">{offer.ctaLabel}</Button>
+</div>
+
+<script>
+  const bar = document.getElementById("buy-bar");
+  const hero = document.getElementById("topo");
+  const offerEl = document.getElementById("oferta");
+  if (bar && hero && offerEl && "IntersectionObserver" in window) {
+    let pastHero = false;
+    let offerVisible = false;
+    const sync = () => {
+      const show = pastHero && !offerVisible;
+      bar.classList.toggle("translate-y-full", !show);
+      bar.setAttribute("aria-hidden", show ? "false" : "true");
+      bar.querySelector("a")?.setAttribute("tabindex", show ? "0" : "-1");
+    };
+    new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting && e.boundingClientRect.top < 0; sync(); }).observe(hero);
+    new IntersectionObserver(([e]) => { offerVisible = e.isIntersecting; sync(); }, { threshold: 0.05 }).observe(offerEl);
+  }
+</script>

@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import Button from "@shared/ui/Button.astro";
+import { offer } from "@modules/offer/data/offer";
+import heroPhoto from "../assets/vinicius-hero.webp";
+import insightsTop from "../assets/insights-top.webp";
+---
+<section id="topo" class="relative isolate overflow-hidden pt-28 pb-16 md:pt-32 lg:pt-36 lg:pb-24">
+  <!-- Motivo da capa do e-book: círculos finos no canto superior direito -->
+  <div aria-hidden="true" class="pointer-events-none absolute -right-48 -top-56 -z-10 size-[56rem] rounded-full border border-paper/[0.06]"></div>
+  <div aria-hidden="true" class="pointer-events-none absolute -right-20 -top-24 -z-10 size-[36rem] rounded-full border border-paper/[0.05]"></div>
+  <div aria-hidden="true" class="pointer-events-none absolute right-[8%] top-24 -z-10 size-[32rem] rounded-full bg-accent/[0.08] blur-[120px]"></div>
+
+  <div class="wrap grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
+    <div class="lg:col-span-7">
+      <p class="hero-in eyebrow !text-paper/60">Guia de crescimento orgânico no Instagram</p>
+      <h1 class="hero-in mt-5 text-[2.6rem] font-extrabold leading-[1] sm:text-[3.6rem] lg:text-[3.55rem] xl:text-[3.7rem]">
+        Não basta postar.<br />
+        <span class="hl">Você precisa ser visto.</span>
+      </h1>
+      <p class="hero-in mt-7 max-w-[36ch] text-lg leading-relaxed text-soft md:text-xl">
+        Configure sua conta do jeito certo e produza Reels que chegam a quem ainda não segue você. Sem anúncio.
+      </p>
+      <div class="hero-in mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <Button href={offer.anchor}>{offer.ctaLabel}</Button>
+        <Button href="#conteudo" variant="ghost" icon="arrowDown">Ver o que tem dentro</Button>
+      </div>
+    </div>
+
+    <figure class="relative mx-auto w-full max-w-[460px] lg:col-span-5 lg:max-w-none">
+      <div class="hero-photo relative aspect-[4/4.6] overflow-hidden rounded-[28px] ring-1 ring-paper/10">
+        <Image
+          src={heroPhoto}
+          alt="Vinicius Campana, criador do PUBLICA, de óculos escuros e jaqueta preta com montanhas nevadas ao fundo"
+          widths={[480, 720, 1080]}
+          sizes="(min-width: 1024px) 40vw, (min-width: 640px) 460px, 92vw"
+          loading="eager"
+          fetchpriority="high"
+          class="size-full object-cover object-[50%_30%]"
+        />
+        <div aria-hidden="true" class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent"></div>
+      </div>
+      <div class="hero-card absolute -bottom-10 -left-3 w-[58%] overflow-hidden rounded-2xl bg-ink shadow-[0_30px_80px_-20px_rgb(0_0_0/0.95)] ring-1 ring-paper/12 sm:-left-8 lg:-left-16">
+        <Image
+          src={insightsTop}
+          alt="Print do painel de insights do Instagram do Vinicius: vídeos com 13 milhões, 6,8 milhões, 4,8 milhões e 4,5 milhões de visualizações"
+          widths={[300, 480, 720]}
+          sizes="(min-width: 1024px) 24vw, 55vw"
+          loading="eager"
+          class="w-full"
+        />
+      </div>
+      <figcaption class="sr-only">Print original do painel de insights do perfil @viniciuscampana.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<script>
+  import { gsap, motionEnabled } from "@shared/motion/motion";
+  if (motionEnabled()) {
+    const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+    tl.from(".hero-in", { y: 34, opacity: 0, duration: 1.1, stagger: 0.09 })
+      // Foto é a candidata a LCP: anima só escala, nunca opacidade.
+      .from(".hero-photo img", { scale: 1.08, duration: 1.6 }, 0)
+      .from(".hero-card", { y: 40, opacity: 0, duration: 1.1 }, 0.55);
+  }
+</script>

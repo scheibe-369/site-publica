@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+import Icon from "@shared/ui/Icon.astro";
+import Button from "@shared/ui/Button.astro";
+import type { IconName } from "@shared/ui/icons";
+import { offer, checkoutHref } from "../data/offer";
+import cover from "@modules/product/assets/ebook-cover.webp";
+const external = Boolean(offer.checkoutUrl);
+---
+<!-- Única virada deliberada de tema da página: a oferta em papel (#F4F2EE). -->
+<section id="oferta" aria-labelledby="oferta-titulo" class="section relative bg-paper text-ink">
+  <div class="wrap grid gap-14 lg:grid-cols-12 lg:gap-16">
+    <div class="lg:col-span-7">
+      <p class="eyebrow" data-reveal>Oferta</p>
+      <h2 id="oferta-titulo" data-reveal class="mt-4 text-[2.4rem] font-extrabold leading-[1.02] md:text-[3.4rem]">
+        Tudo que você recebe.
+      </h2>
+      <p data-reveal class="mt-5 max-w-[50ch] text-lg leading-relaxed text-ink/70">
+        E-book, aula em vídeo, banco de ideias, plano de 7 dias e Máquina de Edição. Em um só pacote.
+      </p>
+
+      <ul class="mt-10 grid">
+        {offer.items.map((it) => (
+          <li data-reveal class="flex gap-5 border-t border-ink/10 py-6">
+            <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-ink text-paper"><Icon name={it.icon as IconName} class="size-5" /></span>
+            <div>
+              <h3 class="text-xl font-extrabold tracking-[-0.02em]">{it.title}</h3>
+              <p class="mt-1.5 leading-relaxed text-ink/70">{it.body}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div data-reveal class="flex flex-col gap-2 border-t border-ink/10 pt-6 text-[0.95rem] text-ink/65">
+        <p class="flex items-center gap-2"><Icon name="clock" class="size-4 text-accent-deep" /> Tempo do material principal: {offer.consumeTime}.</p>
+        <p>{offer.notIncluded}</p>
+      </div>
+    </div>
+
+    <div class="lg:col-span-5">
+      <div data-reveal class="lg:sticky lg:top-24">
+        <div class="relative overflow-hidden rounded-[28px] bg-ink p-7 text-paper shadow-[0_40px_90px_-30px_rgb(10_10_10/0.55)] md:p-9">
+          <div aria-hidden="true" class="absolute -right-24 -top-24 size-64 rounded-full bg-accent/25 blur-[80px]"></div>
+          <div class="relative flex items-center gap-5">
+            <Image src={cover} alt="Capa do e-book PUBLICA" widths={[120, 240]} sizes="96px" loading="lazy" decoding="async" class="w-24 rotate-[-4deg] rounded-sm shadow-[0_20px_40px_-10px_rgb(0_0_0/0.9)]" />
+            <div>
+              <p class="font-display text-lg font-extrabold leading-tight">PUBLICA completo</p>
+              <p class="mt-1 text-sm text-soft">Guia, aula, ideias, plano e Máquina de Edição</p>
+            </div>
+          </div>
+
+          <div class="relative mt-8 border-t border-paper/10 pt-7">
+            <p class="text-sm text-soft">Acesso a tudo por</p>
+            <p class="mt-1 flex items-start gap-1.5 font-display font-black leading-none">
+              <span class="mt-2 text-2xl">{offer.price.currency}</span>
+              <span class="num text-[5rem] md:text-[5.5rem]">{offer.price.whole}</span>
+              {offer.price.cents && <span class="mt-2 text-2xl">{offer.price.cents}</span>}
+            </p>
+            <p class="mt-2 text-sm text-soft">{offer.price.note}, {offer.price.installments}</p>
+          </div>
+
+          <Button href={checkoutHref} class="relative mt-8 w-full" external={external} data-checkout={external ? "ready" : "pending"}>
+            {offer.ctaLabel}
+          </Button>
+
+          <ul class="relative mt-6 grid gap-3 text-sm text-soft">
+            <li class="flex items-center gap-2.5"><Icon name="shieldCheck" class="size-5 text-accent" /> Garantia de {offer.guaranteeDays} dias, reembolso integral</li>
+            <li class="flex items-center gap-2.5"><Icon name="phoneCamera" class="size-5 text-accent" /> Para aplicar no seu celular, no seu ritmo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

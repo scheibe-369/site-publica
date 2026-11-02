@@ -1,0 +1,93 @@
+---
+import "@shared/styles/global.css";
+import { site } from "@shared/config/site";
+import montserratLatin from "@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2?url";
+import interLatin from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+  path?: string;
+}
+const { title = site.title, description = site.description, noindex = false, path } = Astro.props;
+const siteUrl = Astro.site ?? new URL("https://metodo-publica.pages.dev");
+const canonical = new URL(path ?? Astro.url.pathname, siteUrl).href;
+const ogImage = new URL(site.ogImage, siteUrl).href;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: site.title,
+  description,
+  url: canonical,
+  inLanguage: site.lang,
+  primaryImageOfPage: ogImage,
+  author: {
+    "@type": "Person",
+    name: site.author.name,
+    sameAs: [site.author.instagram],
+  },
+};
+---
+<!doctype html>
+<html lang={site.lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex, follow" /> : <link rel="canonical" href={canonical} />}
+    <meta name="theme-color" content={site.themeColor} />
+    <meta name="color-scheme" content="dark" />
+
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="preload" href={montserratLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
+
+    {!noindex && (
+      <>
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content={site.locale} />
+        <meta property="og:site_name" content={site.fullName} />
+        <meta property="og:title" content={site.ogTitle} />
+        <meta property="og:description" content={site.ogDescription} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={site.ogImageAlt} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={site.ogTitle} />
+        <meta name="twitter:description" content={site.ogDescription} />
+        <meta name="twitter:image" content={ogImage} />
+        <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+      </>
+    )}
+
+    <!-- Motion só liga sem prefers-reduced-motion. Se o JS não carregar em 2,5 s, o conteúdo aparece sem animação. -->
+    <script is:inline>
+      (function () {
+        var d = document.documentElement;
+        if (window.matchMedia && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          d.classList.add("motion");
+          setTimeout(function () { if (!d.classList.contains("motion-ready")) d.classList.remove("motion"); }, 2500);
+        }
+      })();
+    </script>
+  </head>
+  <body class="min-h-[100dvh] overflow-x-clip">
+    <a href="#conteudo-principal" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-paper focus:px-5 focus:py-3 focus:font-display focus:font-bold focus:text-ink">
+      Pular para o conteúdo
+    </a>
+    <slot />
+    <script>
+      import { initMotion } from "@shared/motion/motion";
+      initMotion();
+    </script>
+  </body>
+</html>

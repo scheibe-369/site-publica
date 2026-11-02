@@ -1,0 +1,27 @@
+---
+import Icon from "@shared/ui/Icon.astro";
+import { faq } from "../data/faq";
+---
+<section id="duvidas" aria-labelledby="faq-titulo" class="section bg-ink-2">
+  <div class="wrap grid gap-12 lg:grid-cols-12">
+    <div class="lg:col-span-4">
+      <div class="lg:sticky lg:top-28" data-reveal>
+        <h2 id="faq-titulo" class="text-[2.3rem] font-extrabold leading-[1.03] md:text-5xl">Perguntas antes de comprar.</h2>
+        <p class="mt-5 text-soft">As dúvidas mais comuns, respondidas sem rodeio.</p>
+      </div>
+    </div>
+    <div class="lg:col-span-8">
+      {faq.map((item) => (
+        <details data-reveal class="faq group border-b border-paper/10 first:border-t">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-left font-display text-lg font-bold tracking-[-0.02em] marker:hidden md:text-xl [&::-webkit-details-marker]:hidden">
+            <span>{item.q}</span>
+            <span class="grid size-9 shrink-0 place-items-center rounded-full ring-1 ring-paper/20 transition-transform duration-500 ease-[var(--ease-out-expo)] group-open:rotate-45 group-open:bg-accent group-open:text-ink group-open:ring-accent">
+              <Icon name="plus" class="size-4" />
+            </span>
+          </summary>
+          <p class="max-w-[65ch] pb-7 pr-12 leading-relaxed text-soft">{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

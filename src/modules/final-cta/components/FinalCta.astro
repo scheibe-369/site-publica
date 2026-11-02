@@ -1,0 +1,25 @@
+---
+import Button from "@shared/ui/Button.astro";
+import Wordmark from "@shared/brand/Wordmark.astro";
+import { offer } from "@modules/offer/data/offer";
+---
+<section aria-labelledby="final-titulo" class="relative isolate overflow-hidden py-28 lg:py-40">
+  <div aria-hidden="true" class="pointer-events-none absolute -bottom-72 left-1/2 -z-10 size-[60rem] -translate-x-1/2 rounded-full border border-paper/[0.06]"></div>
+  <div aria-hidden="true" class="pointer-events-none absolute -bottom-40 left-1/2 -z-10 h-[30rem] w-[60rem] -translate-x-1/2 rounded-full bg-accent/[0.12] blur-[130px]"></div>
+  <div class="wrap">
+    <h2 id="final-titulo" data-reveal class="max-w-5xl text-[3rem] font-black leading-[0.95] sm:text-7xl lg:text-[6.5rem]">
+      Não basta postar.<br /><span class="hl">Você precisa ser visto.</span>
+    </h2>
+    <div class="mt-12 grid gap-10 md:grid-cols-12 md:items-end">
+      <p data-reveal class="max-w-[46ch] text-lg leading-relaxed text-soft md:col-span-7">
+        Comece pelo plano de 7 dias. Não espere o vídeo perfeito, a câmera perfeita ou o momento perfeito.
+        Comece com o que você tem e melhore com o tempo.
+      </p>
+      <div data-reveal class="flex flex-col gap-4 md:col-span-5 md:items-end">
+        <Button href={offer.anchor}>{offer.ctaLabel}</Button>
+        <p class="text-sm text-mute">Garantia de {offer.guaranteeDays} dias</p>
+      </div>
+    </div>
+    <Wordmark class="mt-24 h-auto w-full max-w-[1100px] text-paper/[0.06]" title="PUBLICA" />
+  </div>
+</section>
