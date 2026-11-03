@@ -1,26 +1,32 @@
 # AI handoff · site-publica
 
 ## Estado atual
-- Última tag: "HANDOFF-site-publica-20261102-205322-claude"
-- Status: em andamento
-- Resumo: landing do PUBLICA construída e publicada em https://metodo-publica.pages.dev (v1). Rodando QA (visual, copy, SEO) e aplicando correções.
+- Última tag: "HANDOFF-site-publica-20261102-211745-claude"
+- Status: bloqueado (aguardando dados do cliente)
+- Resumo: landing do PUBLICA publicada em preview (https://metodo-publica.pages.dev), QA completo aplicado. Falta preço, checkout e domínio.
+
+## [HANDOFF · site-publica · 2026-11-02T21:17:45-03:00 · claude]
+Status: bloqueado
+Objetivo: landing page de vendas clássica (sem VSL) do PUBLICA, publicada, com repo privado no GitHub.
+Feito:
+- Rodada de QA com 3 agentes (visual, copy/fatos, SEO técnico) e todas as correções aplicadas (ver commit 7f015eb).
+- Deploy validado na URL real: rotas 200, 404 real, OG, favicon, 0 cookies, LCP mobile lento 1,1 s, CLS 0.
+- `tasks/site-release.json/.md` com release gate (NOT_READY só por checkout, domínio e verificação final).
+Próximo passo:
+- Com o preço e o checkout: editar `src/modules/offer/data/offer.ts` (`price`, `checkoutUrl`, `priceConfirmed: true`), considerar schema Product/Offer.
+- Com o domínio: `SITE_URL=https://dominio npm run build`, deploy (`npx wrangler@4.150.0 pages deploy dist --project-name=metodo-publica --branch=main --commit-dirty=true`), anexar domínio no Pages e testar.
+- Se o Vinicius confirmar "+45 milhões em um único Reel" com print, voltar o número em `src/modules/proof/data/proof.ts`.
+Arquivos tocados: projeto inteiro.
+Decisões/contexto:
+- Astro fixado em 7.3.8 e wrangler 4.150.0 por causa do Node 22.13 da máquina.
+- PDF do e-book fora do git (produto pago).
+- "desde a pandemia" e "vídeos feitos inteiramente com IA" vêm do briefing do usuário (mantidos).
+- Crédito "Desenvolvida pela Safe Group" (regra global), apesar do CLAUDE.md da CIPHER citar Method Growth Hub.
+Tag: "HANDOFF-site-publica-20261102-211745-claude"
 
 ## [HANDOFF · site-publica · 2026-11-02T20:53:22-03:00 · claude]
 Status: em andamento
 Objetivo: landing page de vendas clássica (sem VSL) do PUBLICA, publicada, com repo privado no GitHub.
-Feito:
-- E-book PUBLICA_2.0.pdf lido e usado como fonte de fatos; identidade baixada do Drive (paleta, wordmark SVG).
-- Pesquisa Instagram via Apify (Vinicius 494.117, Matheus 57.157 seguidores; reels do Matheus com 88 mil a 628 mil reproduções).
-- Astro 7.3 + Tailwind v4 + GSAP, 16 seções em `src/modules/*`. SEO-SPEC, robots, sitemap, llms, 404, OG, favicon.
-- Repo privado `scheibe-369/site-publica` (main). Deploy Pages `metodo-publica` (conta Growth Hub).
-Próximo passo:
-- Aplicar achados dos 3 agentes de QA, rebuild, `npm run check:copy`, redeploy, validar HTTP.
-- Fechar `tasks/site-release.md` e `.json`.
-- Perguntas ao usuário: preço, checkout, domínio, "+45 milhões" (p.6 vs print p.7), crédito Safe Group vs Method Growth Hub, termos/privacidade, forma de acesso.
-Arquivos tocados: projeto inteiro (novo).
-Decisões/contexto:
-- Astro fixado em 7.3.8 e wrangler 4.150.0 por causa do Node 22.13 da máquina.
-- PDF do e-book fora do git (produto pago).
-- Preço R$ 97 é placeholder em `src/modules/offer/data/offer.ts` (`priceConfirmed: false`). Checkout vazio = botões vão para `#oferta`.
-- Estudos de caso são clientes atendidos pelo Vinicius (não compradores do guia); copy deixa isso claro.
+Feito: v1 construída e publicada; repo `scheibe-369/site-publica`; Pages `metodo-publica`.
+Próximo passo: aplicar QA, redeploy, fechar site-release.
 Tag: "HANDOFF-site-publica-20261102-205322-claude"
