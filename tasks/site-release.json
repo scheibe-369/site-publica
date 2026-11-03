@@ -2,7 +2,7 @@
   "schema_version": 1,
   "project": "site-publica (landing de vendas do PUBLICA)",
   "environment": "preview",
-  "audited_at": "2026-11-02T21:17:00-03:00",
+  "audited_at": "2026-11-02T23:32:23-03:00",
   "scope": [
     "https://metodo-publica.pages.dev/",
     "https://metodo-publica.pages.dev/robots.txt",
@@ -18,7 +18,9 @@
       "status": "pass",
       "severity": "high",
       "required": true,
-      "evidence": ["SEO-SPEC.md criado em 2026-11-02 com briefing, stack (Astro 7.3 estático), ambiente preview e dados faltantes (preço, checkout, domínio)."],
+      "evidence": [
+        "SEO-SPEC.md criado em 2026-11-02 com briefing, stack (Astro 7.3 estático), ambiente preview e dados faltantes (preço, checkout, domínio)."
+      ],
       "verified_at": "2026-11-02T21:17:00-03:00",
       "location": "SEO-SPEC.md"
     },
@@ -27,7 +29,9 @@
       "status": "pass",
       "severity": "medium",
       "required": true,
-      "evidence": ["Matriz de páginas no SEO-SPEC: '/' transacional, termo 'crescer no Instagram sem anúncio' (hipótese do briefing, sem pesquisa de volume), CTA único 'Quero o PUBLICA'."],
+      "evidence": [
+        "Matriz de páginas no SEO-SPEC: '/' transacional, termo 'crescer no Instagram sem anúncio' (hipótese do briefing, sem pesquisa de volume), CTA único 'Quero o PUBLICA'."
+      ],
       "verified_at": "2026-11-02T21:17:00-03:00"
     },
     {
@@ -35,7 +39,9 @@
       "status": "pass",
       "severity": "high",
       "required": true,
-      "evidence": ["curl na URL publicada: <title>Método PUBLICA | Cresça no Instagram sem anúncio</title> (48 caracteres), coerente com o H1."],
+      "evidence": [
+        "curl na URL publicada: <title>Método PUBLICA | Cresça no Instagram sem anúncio</title> (48 caracteres), coerente com o H1."
+      ],
       "verified_at": "2026-11-02T21:16:00-03:00"
     },
     {
@@ -43,7 +49,9 @@
       "status": "pass",
       "severity": "medium",
       "required": true,
-      "evidence": ["Meta description própria (cerca de 140 caracteres) sem promessa de resultado; 404 com description específica e noindex."],
+      "evidence": [
+        "Meta description própria (cerca de 140 caracteres) sem promessa de resultado; 404 com description específica e noindex."
+      ],
       "verified_at": "2026-11-02T21:16:00-03:00"
     },
     {
@@ -54,26 +62,34 @@
       "evidence": [
         "Auditoria do dist: 1 H1, 16 seções com H2, sem pulo de nível.",
         "Fatos conferidos contra o e-book PUBLICA_2.0.pdf e o Instagram público (Apify, 2026-11-02) por agente revisor; números divergentes removidos ou trocados por números com print.",
-        "FAQ com 10 dúvidas reais; schema apenas WebPage + Person (sem FAQPage/Product por falta de preço)."
+        "FAQ com 10 dúvidas reais; schema WebPage + Person + Product/Offer (R$ 69,90, devolução em 7 dias) gerado de offer.ts."
       ],
-      "verified_at": "2026-11-02T21:10:00-03:00",
-      "limitations": ["'+45 milhões em um único Reel' (e-book p.6) foi retirado até confirmação; usado '+48 milhões somando 10 Reels' (print p.7)."]
+      "verified_at": "2026-11-02T23:32:23-03:00",
+      "limitations": [
+        "'+45 milhões em um único Reel' (e-book p.6) foi retirado até confirmação; usado '+48 milhões somando 10 Reels' (print p.7)."
+      ]
     },
     {
       "id": "canonical-indexing",
       "status": "pass",
       "severity": "critical",
       "required": true,
-      "evidence": ["URL publicada responde 200 via HTTPS, canonical https://metodo-publica.pages.dev/, sem noindex na home; HTTP responde 301 para HTTPS."],
+      "evidence": [
+        "URL publicada responde 200 via HTTPS, canonical https://metodo-publica.pages.dev/, sem noindex na home; HTTP responde 301 para HTTPS."
+      ],
       "verified_at": "2026-11-02T21:16:41-03:00",
-      "limitations": ["Canonical aponta para o preview. Ao definir domínio, rebuild com SITE_URL e reteste."]
+      "limitations": [
+        "Canonical aponta para o preview. Ao definir domínio, rebuild com SITE_URL e reteste."
+      ]
     },
     {
       "id": "robots",
       "status": "pass",
       "severity": "medium",
       "required": true,
-      "evidence": ["GET /robots.txt 200 text/plain: 'User-agent: * / Allow: /' + Sitemap absoluto."],
+      "evidence": [
+        "GET /robots.txt 200 text/plain: 'User-agent: * / Allow: /' + Sitemap absoluto."
+      ],
       "verified_at": "2026-11-02T21:16:00-03:00"
     },
     {
@@ -81,7 +97,9 @@
       "status": "pass",
       "severity": "medium",
       "required": true,
-      "evidence": ["GET /sitemap.xml 200 application/xml, XML válido (parser no agente de SEO), apenas '/' com lastmod real 2026-11-02."],
+      "evidence": [
+        "GET /sitemap.xml 200 application/xml, XML válido (parser no agente de SEO), apenas '/' com lastmod real 2026-11-02."
+      ],
       "verified_at": "2026-11-02T21:16:00-03:00"
     },
     {
@@ -89,7 +107,9 @@
       "status": "pass",
       "severity": "low",
       "required": true,
-      "evidence": ["GET /llms.txt 200, Markdown com fatos da página e âncoras existentes (#metodo, #conteudo, #maquina, #resultados, #oferta, #duvidas). Proposta experimental, sem garantia de adoção."],
+      "evidence": [
+        "GET /llms.txt 200, Markdown com fatos da página e âncoras existentes (#metodo, #conteudo, #maquina, #resultados, #oferta, #duvidas). Proposta experimental, sem garantia de adoção."
+      ],
       "verified_at": "2026-11-02T21:16:00-03:00"
     },
     {
@@ -97,7 +117,9 @@
       "status": "pending",
       "severity": "medium",
       "required": true,
-      "evidence": ["og:image https://metodo-publica.pages.dev/og-image.jpg 200, 1200x630, og:image:alt e twitter:image:alt presentes."],
+      "evidence": [
+        "og:image https://metodo-publica.pages.dev/og-image.jpg 200, 1200x630, og:image:alt e twitter:image:alt presentes."
+      ],
       "reason": "OG aponta para o domínio de preview; o domínio final ainda não foi definido e o cache dos compartilhadores não foi testado.",
       "action": "Definir domínio, rebuild com SITE_URL, testar no depurador de compartilhamento da Meta e no WhatsApp.",
       "owner": "Cliente define domínio; Claude refaz build e teste"
@@ -107,7 +129,9 @@
       "status": "pass",
       "severity": "low",
       "required": true,
-      "evidence": ["/favicon.ico (16/32/48), /favicon-48.png, /favicon.svg e /apple-touch-icon.png respondem 200 e estão no head; símbolo 'p' com ponto vermelho legível em 48px."],
+      "evidence": [
+        "/favicon.ico (16/32/48), /favicon-48.png, /favicon.svg e /apple-touch-icon.png respondem 200 e estão no head; símbolo 'p' com ponto vermelho legível em 48px."
+      ],
       "verified_at": "2026-11-02T21:16:00-03:00"
     },
     {
@@ -132,15 +156,20 @@
         "Lighthouse 12.8 mobile simulado no build local (antes do CSS inline): Perf 91, A11y 100, BP 100, SEO 100."
       ],
       "verified_at": "2026-11-02T21:15:00-03:00",
-      "limitations": ["Sem dados de campo (página nova, sem tráfego)."]
+      "limitations": [
+        "Sem dados de campo (página nova, sem tráfego)."
+      ]
     },
     {
       "id": "navigation-mobile",
       "status": "pass",
       "severity": "high",
       "required": true,
-      "evidence": ["Screenshots por seção em 1440, 768 e 375 com motion ativo: sem overflow horizontal, sem erro de console, 0 elementos com opacidade/transform residual; âncoras internas existem; barra fixa mobile aparece após o hero e some na oferta e no CTA final."],
-      "verified_at": "2026-11-02T21:11:00-03:00"
+      "evidence": [
+        "Screenshots por seção em 1440, 768 e 375 com motion ativo: sem overflow horizontal, sem erro de console, 0 elementos com opacidade/transform residual; âncoras internas existem; barra fixa mobile aparece após o hero e some na oferta e no CTA final.",
+        "Rodada 2 (selo novo e preço): seção de garantia e cartão de oferta conferidos em 375, 768, 1024 e 1440 com rolagem real, sem overflow, sem erro de console, carimbo do selo termina sem transform residual; reduced motion deixa o selo estático."
+      ],
+      "verified_at": "2026-11-02T23:32:23-03:00"
     },
     {
       "id": "accessibility",
@@ -183,16 +212,22 @@
       "status": "pass",
       "severity": "medium",
       "required": true,
-      "evidence": ["Inventário: sem formulário, sem analytics, sem pixel, fontes self-hosted, nenhum dado pessoal coletado pela página. Links externos só para Instagram e Safe Group."],
-      "verified_at": "2026-11-02T21:16:41-03:00",
-      "limitations": ["Ao instalar pixel/analytics ou formulário, publicar política de privacidade e revisar este item."]
+      "evidence": [
+        "Inventário: sem formulário, sem analytics, sem pixel, fontes self-hosted, nenhum dado pessoal coletado pela página. Links externos só para o Instagram."
+      ],
+      "verified_at": "2026-11-02T23:32:23-03:00",
+      "limitations": [
+        "Ao instalar pixel/analytics ou formulário, publicar política de privacidade e revisar este item."
+      ]
     },
     {
       "id": "cookies",
       "status": "pass",
       "severity": "low",
       "required": true,
-      "evidence": ["curl -I na URL publicada: 0 cabeçalhos Set-Cookie; nenhum script de terceiros carregado."],
+      "evidence": [
+        "curl -I na URL publicada: 0 cabeçalhos Set-Cookie; nenhum script de terceiros carregado."
+      ],
       "verified_at": "2026-11-02T21:16:41-03:00"
     },
     {
@@ -200,7 +235,9 @@
       "status": "pass",
       "severity": "high",
       "required": true,
-      "evidence": ["GET /nao-existe e /a/b/c respondem HTTP 404 com página útil (link para a home), meta robots noindex, sem canonical."],
+      "evidence": [
+        "GET /nao-existe e /a/b/c respondem HTTP 404 com página útil (link para a home), meta robots noindex, sem canonical."
+      ],
       "verified_at": "2026-11-02T21:16:00-03:00"
     },
     {
@@ -232,32 +269,39 @@
       "status": "pass",
       "severity": "high",
       "required": true,
-      "evidence": ["git grep e grep no dist por padrões de token (cfut_, cfat_, gho_, ghp_): 0 ocorrências; e-book pago (PDF) fora do git e do build; HTTPS forçado pelo Pages."],
+      "evidence": [
+        "git grep e grep no dist por padrões de token (cfut_, cfat_, gho_, ghp_): 0 ocorrências; e-book pago (PDF) fora do git e do build; HTTPS forçado pelo Pages."
+      ],
       "verified_at": "2026-11-02T21:16:41-03:00"
     },
     {
       "id": "credit",
-      "status": "pass",
+      "status": "na",
       "severity": "low",
-      "required": true,
-      "evidence": ["Rodapé publicado: <a href=\"https://safegroupia.com\" target=\"_blank\" rel=\"noopener\">Desenvolvida pela Safe Group</a>, cor de texto secundário com realce no hover."],
-      "verified_at": "2026-11-02T21:16:00-03:00",
-      "limitations": ["O CLAUDE.md da pasta CIPHER ainda cita 'Method Growth Hub'; aplicada a regra global mais recente (Safe Group). Confirmar com o usuário."]
+      "required": false,
+      "evidence": [
+        "Build e URL publicada: 0 ocorrências de 'Safe Group' ou 'safegroupia' no HTML; rodapé só com © 2026 PUBLICA."
+      ],
+      "reason": "O usuário decidiu em 2026-11-02 que esta landing não leva crédito de desenvolvimento. Exceção registrada no CLAUDE.md do projeto."
     },
     {
       "id": "build",
       "status": "pass",
       "severity": "high",
       "required": true,
-      "evidence": ["npm run build (Astro 7.3.8) concluído sem erro; npm run check:copy: 'OK: zero travessão em dist, src'."],
-      "verified_at": "2026-11-02T21:09:51-03:00"
+      "evidence": [
+        "npm run build (Astro 7.3.8) concluído sem erro; npm run check:copy: 'OK: zero travessão em dist, src'."
+      ],
+      "verified_at": "2026-11-02T23:32:23-03:00"
     },
     {
       "id": "production-verification",
       "status": "pending",
       "severity": "high",
       "required": true,
-      "evidence": ["Smoke HTTP no preview metodo-publica.pages.dev: rotas 200, 404 real, OG e favicon acessíveis."],
+      "evidence": [
+        "Smoke HTTP no preview após o deploy da rodada 2: /, /robots.txt, /sitemap.xml, /llms.txt e /og-image.jpg 200; /nao-existe 404; HTML com price 69.90 e selo novo."
+      ],
       "reason": "Ambiente é preview: sem domínio final, preço e checkout reais.",
       "action": "Após definir domínio, preço e checkout: rebuild com SITE_URL, deploy, smoke HTTP/navegador e teste de clique até o checkout.",
       "owner": "Cliente fornece dados; Claude executa"
@@ -267,9 +311,12 @@
       "status": "pending",
       "severity": "critical",
       "required": true,
-      "evidence": ["src/modules/offer/data/offer.ts: checkoutUrl vazio e preço R$ 97 marcado como placeholder (priceConfirmed: false)."],
-      "reason": "Preço e link de checkout não foram informados pelo cliente.",
-      "action": "Preencher checkoutUrl e price em offer.ts, rebuild, deploy e testar o clique do botão do cartão de oferta até a página de pagamento.",
+      "evidence": [
+        "src/modules/offer/data/offer.ts: preço confirmado R$ 69,90 (priceConfirmed: true), publicado no cartão de oferta e no schema Offer (price 69.90 BRL).",
+        "checkoutUrl ainda vazio: o botão do cartão de oferta aponta para #oferta."
+      ],
+      "reason": "Link de checkout não informado pelo cliente (o preço já foi confirmado).",
+      "action": "Preencher checkoutUrl em offer.ts, rebuild, deploy e testar o clique do botão do cartão de oferta até a página de pagamento.",
       "owner": "Cliente informa; Claude aplica",
       "location": "src/modules/offer/data/offer.ts"
     }

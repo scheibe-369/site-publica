@@ -23,7 +23,6 @@ export const site = {
     handle: "@matheusfonseca.ia",
     instagram: "https://www.instagram.com/matheusfonseca.ia/",
   },
-  credit: { label: "Desenvolvida pela Safe Group", href: "https://safegroupia.com" },
 } as const;
 
 export const nav = [

@@ -1,14 +1,14 @@
-// FONTE ÚNICA da oferta. Preço e checkout ainda NÃO foram confirmados pelo cliente.
-// Para publicar de verdade: preencher `checkoutUrl`, confirmar `price` e trocar `priceConfirmed` para true.
+// FONTE ÚNICA da oferta. Preço confirmado pelo cliente em 2026-11-02 (R$ 69,90). Checkout ainda não informado.
+// Para vender de verdade: preencher `checkoutUrl` com o link da plataforma de pagamento.
 export const offer = {
   ctaLabel: "Quero o PUBLICA",
   anchor: "#oferta",
   checkoutUrl: "", // ex.: link da Hotmart/Kiwify. Vazio = botões levam para #oferta.
-  priceConfirmed: false,
+  priceConfirmed: true,
   price: {
     currency: "R$",
-    whole: "97", // PLACEHOLDER, confirmar com o cliente
-    cents: "",
+    whole: "69",
+    cents: ",90",
     note: "pagamento único",
     installments: "ou parcelado no cartão",
   },

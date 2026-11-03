@@ -1,21 +1,21 @@
 # Fechamento de lançamento · site-publica
 
 - Projeto: landing page de vendas do PUBLICA (Vinicius Campana + Máquina de Edição de Matheus Fonseca)
-- Data: 2026-11-02 21:17 (-03:00)
+- Data: 2026-11-02 23:32 (-03:00), rodada 2 (preço, selo, crédito)
 - Ambiente: preview, https://metodo-publica.pages.dev (Cloudflare Pages, conta Growth Hub)
 - Escopo: `/`, `/robots.txt`, `/sitemap.xml`, `/llms.txt`, `/og-image.jpg`, `/nao-existe`, build local `dist/`
 - Validador: `release_gate.py` executado, relatório válido
 
 ## Decisão: NOT_READY (para lançamento público)
 
-Pronto no escopo de preview: 20 verificações aprovadas, 6 não aplicáveis com motivo, 0 falhas.
+Pronto no escopo de preview: 19 verificações aprovadas, 7 não aplicáveis com motivo, 0 falhas. Preço confirmado (R$ 69,90).
 O que impede o lançamento são 3 pendências que dependem de dados do cliente, não de código.
 
 ## Pendências, em ordem de dependência
 
 | ID | Severidade | Local | Ação | Responsável sugerido | Como retestar |
 | --- | --- | --- | --- | --- | --- |
-| checkout | critical | `src/modules/offer/data/offer.ts` | Informar preço real e link do checkout; preencher `price` e `checkoutUrl` | Cliente informa, Claude aplica | Clicar no botão do cartão de oferta e chegar à página de pagamento |
+| checkout | critical | `src/modules/offer/data/offer.ts` | Informar o link do checkout e preencher `checkoutUrl` (preço já confirmado: R$ 69,90) | Cliente informa, Claude aplica | Clicar no botão do cartão de oferta e chegar à página de pagamento |
 | social | medium | `astro.config.mjs` (`SITE_URL`) | Definir domínio, rebuild com `SITE_URL=https://dominio` | Cliente define domínio | Depurador de compartilhamento da Meta e WhatsApp |
 | production-verification | high | URL final | Deploy no domínio final e smoke HTTP/navegador | Claude | curl nas rotas + navegação real até o checkout |
 
@@ -29,7 +29,7 @@ Ações externas: domínio (e DNS, se for subdomínio da Growth Hub ou da CIPHER
 | page-intent | pass | `/` transacional, termo hipotético do briefing, CTA único |
 | titles | pass | Title de 48 caracteres no HTML publicado |
 | descriptions | pass | Description própria, sem promessa de resultado |
-| headings-content | pass | 1 H1, 16 H2, fatos conferidos contra o e-book e o Instagram |
+| headings-content | pass | 1 H1, 16 H2, fatos conferidos contra o e-book e o Instagram; schema Product/Offer com R$ 69,90 |
 | canonical-indexing | pass | 200 HTTPS, canonical absoluto, HTTP 301 para HTTPS |
 | robots | pass | 200, Allow + Sitemap absoluto |
 | sitemap | pass | XML válido só com `/` |
@@ -47,10 +47,10 @@ Ações externas: domínio (e DNS, se for subdomínio da Growth Hub ou da CIPHER
 | not-found | pass | 404 real com noindex |
 | email-spf / dkim / dmarc | na | Página não envia e-mail |
 | security | pass | 0 tokens no repo e no build; PDF pago fora do git |
-| credit | pass | "Desenvolvida pela Safe Group" no rodapé (confirmar vs. CLAUDE.md da CIPHER) |
+| credit | na | Sem crédito no rodapé, por decisão do usuário em 2026-11-02 |
 | build | pass | Astro build ok, `check:copy` ok |
 | production-verification | pending | Só preview verificado |
-| checkout | pending | Preço placeholder e checkout vazio |
+| checkout | pending | Preço R$ 69,90 confirmado; link de checkout ainda vazio |
 
 ## Limitações
 

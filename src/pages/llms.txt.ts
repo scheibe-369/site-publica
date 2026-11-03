@@ -1,4 +1,7 @@
 import type { APIRoute } from "astro";
+import { offer } from "@modules/offer/data/offer";
+
+const price = `${offer.price.currency} ${offer.price.whole}${offer.price.cents}`;
 
 export const GET: APIRoute = ({ site }) => {
   const base = site ?? new URL("https://metodo-publica.pages.dev");
@@ -14,7 +17,7 @@ export const GET: APIRoute = ({ site }) => {
 - [O que tem dentro](${u("/#conteudo")}): as 10 partes do e-book e os 2 bônus (30 ideias de Reels e plano de 7 dias).
 - [Máquina de Edição](${u("/#maquina")}): roteirizar, editar e publicar com IA, com mais de 12 formatos e 6 tipos de edição.
 - [Resultados](${u("/#resultados")}): estudos de caso registrados no material, sem garantia de resultado.
-- [Oferta e garantia](${u("/#oferta")}): itens inclusos e garantia de 7 dias.
+- [Oferta e garantia](${u("/#oferta")}): itens inclusos, preço (${price}, ${offer.price.note}) e garantia de 7 dias.
 - [Perguntas frequentes](${u("/#duvidas")}): dúvidas sobre nicho, tempo, acesso e o que não está incluso.
 
 ## Observações

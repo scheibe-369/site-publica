@@ -8,14 +8,15 @@ interface Props {
   description?: string;
   noindex?: boolean;
   path?: string;
+  /** Nós extras de schema.org (ex.: Product) somados ao WebPage no @graph. */
+  schema?: Record<string, unknown>[];
 }
-const { title = site.title, description = site.description, noindex = false, path } = Astro.props;
+const { title = site.title, description = site.description, noindex = false, path, schema = [] } = Astro.props;
 const siteUrl = Astro.site ?? new URL("https://metodo-publica.pages.dev");
 const canonical = new URL(path ?? Astro.url.pathname, siteUrl).href;
 const ogImage = new URL(site.ogImage, siteUrl).href;
 
-const jsonLd = {
-  "@context": "https://schema.org",
+const webPage = {
   "@type": "WebPage",
   name: site.title,
   description,
@@ -28,6 +29,7 @@ const jsonLd = {
     sameAs: [site.author.instagram],
   },
 };
+const jsonLd = { "@context": "https://schema.org", "@graph": [webPage, ...schema] };
 ---
 <!doctype html>
 <html lang={site.lang}>

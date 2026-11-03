@@ -20,8 +20,9 @@ npm run check:copy   # falha se houver travessão (U+2013/U+2014) em dist/ ou sr
 ```
 
 ## Onde editar o quê (modular-arch)
-- Oferta, preço, checkout, itens inclusos: `src/modules/offer/data/offer.ts` (fonte única).
-- Metadados, nav, crédito: `src/shared/config/site.ts`.
+- Oferta, preço (R$ 69,90, confirmado em 2026-11-02), checkout, itens inclusos: `src/modules/offer/data/offer.ts` (fonte única; o schema Product/Offer e o llms.txt leem dele).
+- Selo de garantia: `src/modules/offer/components/GuaranteeSeal.astro` (SVG próprio, cores da marca).
+- Metadados e nav: `src/shared/config/site.ts`.
 - Cada seção: `src/modules/<seção>/components/*.astro` + `data/*.ts` + `assets/*.webp`.
 - Ordem das seções: `src/pages/index.astro`.
 - Tokens da marca: `src/shared/styles/global.css` (`@theme`). Wordmark oficial: `src/shared/brand/Wordmark.astro`.
@@ -35,7 +36,7 @@ Texto de botão primário é `#0A0A0A` sobre `#FF3B1F` (contraste AA). Não usar
 ## Regras
 - Zero travessão em qualquer copy. Rodar `npm run check:copy` antes de publicar.
 - Imagens novas: WebP dentro do `assets/` do módulo; hero eager + `fetchpriority="high"`, o resto lazy.
-- Crédito no rodapé: "Desenvolvida pela Safe Group" (regra global vigente).
+- **Sem crédito de desenvolvimento no rodapé** (nem Safe Group, nem Growth Hub): decisão do usuário em 2026-11-02. Esta exceção prevalece sobre a regra global de crédito.
 - SEO: seguir `SEO-SPEC.md` (skill `site-seo-release`). Fechamento em `tasks/site-release.md` e `.json`.
 - Handoff entre IAs: `tasks/ai-handoff.md`.
 

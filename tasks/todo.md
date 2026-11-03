@@ -10,7 +10,7 @@ Plano aprovado por padrão (usuário ausente, autonomia total em 2026-11-02). D�
 - Fatos só do e-book PUBLICA 2.0 e do briefing. Sem depoimento inventado. Aviso de resultados no rodapé.
 - Preço e checkout: placeholders em config, perguntar no fim.
 - Deploy: Cloudflare Pages (conta Growth Hub, preview `.pages.dev`). Repo privado em `scheibe-369`.
-- Crédito: "Desenvolvida pela Safe Group" (regra global vigente desde 2026-09-12).
+- Crédito: nenhum no rodapé (usuário pediu para tirar o da Safe Group em 2026-11-02).
 
 ## Etapas
 - [x] Ler e-book (texto, imagens, fontes) e baixar identidade do Drive
@@ -26,7 +26,13 @@ Plano aprovado por padrão (usuário ausente, autonomia total em 2026-11-02). D�
 - [x] Repo GitHub privado + push (`scheibe-369/site-publica`)
 - [x] Deploy Cloudflare Pages + validação HTTP (https://metodo-publica.pages.dev)
 - [x] tasks/site-release.md/.json, ai-handoff.md, review final
-- [ ] Aguardando cliente: preço, checkout, domínio, confirmação do "+45 milhões"
+- [ ] Aguardando cliente: checkout, domínio, confirmação do "+45 milhões" (preço confirmado: R$ 69,90)
+
+## Ajustes do cliente (2026-11-02, rodada 2)
+- [x] Tirar o crédito "Desenvolvida pela Safe Group" (rodapé, config, docs) e registrar a regra no projeto
+- [x] Preço final R$ 69,90 em `offer.ts` (`priceConfirmed: true`), schema Product/Offer e llms.txt
+- [x] Selo de garantia de 7 dias novo (SVG próprio no estilo selo clássico, nas cores da marca) e seção em duas colunas
+- [x] Build, check:copy, screenshots 375/768/1440, deploy no preview, validação na URL real, commit e push
 
 ## Review
 - Entregue em preview: 16 seções, identidade oficial, provas reais (prints do e-book, Instagram verificado via Apify).
@@ -34,3 +40,4 @@ Plano aprovado por padrão (usuário ausente, autonomia total em 2026-11-02). D�
   2 contrastes abaixo de AA, carrossel de Reels espremido no tablet, números sem prova, repetições de layout.
 - Medido na URL real: mobile lento LCP 1,1 s, desktop 0,36 s, CLS 0. Lighthouse mobile 91/100/100/100 (build local).
 - Release gate: NOT_READY só por checkout/preço, domínio e verificação final (dependem do cliente).
+- Rodada 2 (2026-11-02): preço R$ 69,90 publicado com schema Product/Offer, selo de garantia novo em SVG, crédito removido. Verificado em 375/768/1024/1440 e na URL real.

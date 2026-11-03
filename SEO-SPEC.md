@@ -34,7 +34,7 @@
 - Acessibilidade: contraste AA (texto do botão `#0A0A0A` sobre `#FF3B1F`), foco visível, skip link, `details/summary` no FAQ, hierarquia h1 > h2 > h3, `prefers-reduced-motion` desliga GSAP e marquee.
 - Privacidade: sem cookies próprios. Política de privacidade a confirmar quando houver pixel.
 - E-mail: não se aplica (sem formulário nem envio).
-- Operação: `npm run build`, 404 real servido pelo Pages (`404.html`), HTTPS do Pages, mobile 375/768/1440, crédito "Desenvolvida pela Safe Group" no rodapé.
+- Operação: `npm run build`, 404 real servido pelo Pages (`404.html`), HTTPS do Pages, mobile 375/768/1440, sem crédito de desenvolvimento no rodapé (decisão do usuário em 2026-11-02).
 
 ## Plano de aceite
 
@@ -51,7 +51,7 @@
 | images | Sim | WebP, dimensões reservadas, lazy fora da dobra, hero eager | Inspeção do build | Build | Claude |
 | a11y | Sim | Contraste AA, foco visível, alt contextual | Navegador | Build | Claude |
 | copy | Sim | Zero travessão (U+2013/U+2014) no HTML | `npm run check:copy` | Build | Claude |
-| credit | Sim | Rodapé com "Desenvolvida pela Safe Group" | Inspeção | Build | Claude |
+| credit | Não | Sem crédito no rodapé, por decisão do usuário (2026-11-02) | Inspeção | Build | Claude |
 | perf | Recomendado | LCP de laboratório < 2,5 s em mobile | Lighthouse/Playwright (laboratório) | Deploy | Claude |
 
 ## Histórico de decisões

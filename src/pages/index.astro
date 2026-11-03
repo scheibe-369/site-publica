@@ -19,8 +19,13 @@ import Faq from "@modules/faq/components/Faq.astro";
 import FinalCta from "@modules/final-cta/components/FinalCta.astro";
 import SiteFooter from "@modules/footer/components/SiteFooter.astro";
 import MobileBuyBar from "@modules/offer/components/MobileBuyBar.astro";
+import { productSchema } from "@modules/offer/data/schema";
+import { site } from "@shared/config/site";
+
+const base = Astro.site ?? new URL("https://metodo-publica.pages.dev");
+const schema = [productSchema(new URL("/", base).href, new URL(site.ogImage, base).href)];
 ---
-<BaseLayout path="/">
+<BaseLayout path="/" schema={schema}>
   <SiteNav />
   <main id="conteudo-principal">
     <Hero />

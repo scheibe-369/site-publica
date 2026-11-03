@@ -8,3 +8,11 @@
 - **Não repetir a mesma prova visual em duas seções.** O print do perfil apareceria no hero e no mecanismo; trocar
   um deles por outra prova real (painel de insights) deixa a página mais rica.
 - **Imagem candidata a LCP não anima opacidade.** Só escala/transform, senão o LCP espera a animação.
+- **Crédito de rodapé não é automático em parceria de cliente.** O usuário pediu para tirar "Desenvolvida pela Safe Group"
+  desta landing (2026-11-02). Regra: em projeto da pasta CIPHER/VINICIUS PARCERIA, não colocar crédito de desenvolvimento
+  sem pedido explícito; na dúvida, perguntar no fim junto das outras pendências, em vez de aplicar a regra global sozinho.
+- **Encerrar servidores de preview de verdade.** No Windows, parar a tarefa do shell não mata o `node` filho; um
+  `astro preview` esquecido prende `dist/` e o `astro build` seguinte fica parado sem erro. Matar pelo PID
+  (`Get-CimInstance Win32_Process` filtrando a linha de comando) ao terminar a verificação.
+- **Screenshot de elemento com `[data-reveal]` pode sair vazio.** O `locator.screenshot` salta direto para o elemento e
+  captura antes do ScrollTrigger revelar. Para QA visual, rolar com `mouse.wheel`, esperar ~2 s e tirar print da viewport.

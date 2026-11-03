@@ -24,4 +24,3 @@ Requer Node 22.12+. Astro fixado em 7.3.x (o 7.4+ pede Node 22.23+).
 
 Detalhes de arquitetura, identidade e deploy em `CLAUDE.md`. SEO em `SEO-SPEC.md`.
 
-Desenvolvida pela [Safe Group](https://safegroupia.com).
