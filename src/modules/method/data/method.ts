@@ -9,12 +9,12 @@ export const adjustments: { icon: IconName; title: string; body: string }[] = [
   },
   {
     icon: "idCard",
-    title: "Criador ou Empresa, escolhido certo",
+    title: "Tipo de conta certo: Criador ou Empresa",
     body: "Usa seu nome e sua imagem? Criador. Representa loja, clínica, restaurante ou marca? Empresa.",
   },
   {
     icon: "imageSquare",
-    title: "Foto que se reconhece pequena",
+    title: "Foto reconhecível mesmo pequena",
     body: "Ela aparece minúscula nos comentários e na busca. Se some quando encolhe, não está ajudando.",
   },
   {

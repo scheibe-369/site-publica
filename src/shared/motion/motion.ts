@@ -15,19 +15,19 @@ export function initMotion() {
   gsap.registerPlugin(ScrollTrigger);
   document.documentElement.classList.add("motion-ready");
 
+  // O CSS esconde [data-reveal]:not(.is-in). Ao entrar, a classe libera o CSS e o GSAP
+  // anima a partir do estado escondido até a posição natural (sem transform residual).
   ScrollTrigger.batch("[data-reveal]", {
     start: "top 90%",
     once: true,
-    onEnter: (els) =>
-      gsap.to(els, {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "expo.out",
-        stagger: 0.08,
-        overwrite: true,
-        clearProps: "transform",
-      }),
+    onEnter: (els) => {
+      els.forEach((el) => el.classList.add("is-in"));
+      gsap.fromTo(
+        els,
+        { opacity: 0, y: 28 },
+        { opacity: 1, y: 0, duration: 1, ease: "expo.out", stagger: 0.08, overwrite: true, clearProps: "opacity,transform" },
+      );
+    },
   });
 
   const fmt = new Intl.NumberFormat("pt-BR");

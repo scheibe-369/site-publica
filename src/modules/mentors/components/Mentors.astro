@@ -6,7 +6,7 @@ import vinicius from "../assets/vinicius.webp";
 import matheus from "../assets/matheus.webp";
 
 const viniChips = ["494 mil no Instagram", "+800 alunos", "Mais Você, TV Globo"];
-const matChips = ["57 mil no Instagram", "Reels com mais de 600 mil reproduções", "Vídeos feitos com IA"];
+const matChips = ["57 mil no Instagram", "Reel com 628 mil reproduções", "Vídeos feitos com IA"];
 ---
 <section aria-labelledby="professores-titulo" class="section">
   <div class="wrap">
@@ -17,7 +17,7 @@ const matChips = ["57 mil no Instagram", "Reels com mais de 600 mil reproduçõe
     <div class="mt-14 grid gap-5 lg:grid-cols-12">
       <article data-reveal class="card grid overflow-hidden sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:col-span-7">
         <div class="relative aspect-[4/5] sm:aspect-auto">
-          <Image src={vinicius} alt="Vinicius Campana gravando um vídeo para o Instagram" widths={[360, 640]} sizes="(min-width: 1024px) 26vw, (min-width: 640px) 44vw, 92vw" loading="lazy" decoding="async" class="absolute inset-0 size-full object-cover object-[50%_25%]" />
+          <Image src={vinicius} alt="Vinicius Campana de óculos escuros e camiseta preta, ao ar livre" widths={[360, 720]} sizes="(min-width: 1024px) 26vw, (min-width: 640px) 44vw, 92vw" loading="lazy" decoding="async" class="absolute inset-0 size-full object-cover object-[50%_18%]" />
         </div>
         <div class="flex flex-col p-7 md:p-9">
           <p class="text-sm text-mute">Criador do PUBLICA</p>
@@ -34,7 +34,7 @@ const matChips = ["57 mil no Instagram", "Reels com mais de 600 mil reproduçõe
             Hoje aplica o mesmo processo em perfis de lojas, moda, profissionais liberais e negócios locais.
           </p>
           <ul class="mt-6 flex flex-wrap gap-2">
-            {viniChips.map((c) => <li class="rounded-full bg-paper/[0.06] px-3.5 py-1.5 text-sm text-paper/85">{c}</li>)}
+            {viniChips.map((c) => <li class="whitespace-nowrap rounded-full bg-paper/[0.06] px-3.5 py-1.5 text-sm text-paper/85">{c}</li>)}
           </ul>
         </div>
       </article>
@@ -54,7 +54,7 @@ const matChips = ["57 mil no Instagram", "Reels com mais de 600 mil reproduçõe
             ensina esse processo do roteiro à postagem automática.
           </p>
           <ul class="mt-6 flex flex-wrap gap-2">
-            {matChips.map((c) => <li class="rounded-full bg-paper/[0.06] px-3.5 py-1.5 text-sm text-paper/85">{c}</li>)}
+            {matChips.map((c) => <li class="whitespace-nowrap rounded-full bg-paper/[0.06] px-3.5 py-1.5 text-sm text-paper/85">{c}</li>)}
           </ul>
         </div>
       </article>

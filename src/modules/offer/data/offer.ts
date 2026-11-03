@@ -13,7 +13,7 @@ export const offer = {
     installments: "ou parcelado no cartão",
   },
   guaranteeDays: 7,
-  consumeTime: "cerca de 1 hora",
+  consumeTime: "cerca de 1\u00a0hora para ler e assistir",
   items: [
     {
       icon: "bookOpen",
@@ -32,13 +32,13 @@ export const offer = {
     },
     {
       icon: "listChecks",
-      title: "Checklist e plano de 7 dias",
-      body: "Perfil arrumado, três vídeos gravados e o primeiro publicado.",
+      title: "Plano de ação de 7 dias",
+      body: "Checklist dia a dia: perfil arrumado, três vídeos gravados e o primeiro publicado.",
     },
     {
       icon: "magicWand",
       title: "Máquina de Edição",
-      body: "Aulas com Matheus Fonseca para roteirizar, editar e publicar com IA. 12+ formatos e 6 tipos de edição.",
+      body: "Aulas com Matheus Fonseca para roteirizar, editar e publicar com IA. Mais de 12\u00a0formatos e 6\u00a0tipos de edição.",
     },
   ],
   notIncluded: "Não inclui grupo de WhatsApp, suporte individual, análise de perfil nem encontros ao vivo.",

@@ -13,8 +13,8 @@ import insightsTop from "../assets/insights-top.webp";
 
   <div class="wrap grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
     <div class="lg:col-span-7">
-      <p class="hero-in eyebrow !text-paper/60">Guia de crescimento orgânico no Instagram</p>
-      <h1 class="hero-in mt-5 text-[2.6rem] font-extrabold leading-[1] sm:text-[3.6rem] lg:text-[3.55rem] xl:text-[3.7rem]">
+      <p class="hero-in eyebrow !text-paper/60">Crescimento orgânico no Instagram</p>
+      <h1 class="hero-in mt-5 text-[clamp(2.1rem,9.6vw,3.6rem)] font-extrabold leading-[1] sm:text-[3.6rem] lg:text-[3.55rem] xl:text-[3.7rem]">
         Não basta postar.<br />
         <span class="hl">Você precisa ser visto.</span>
       </h1>
@@ -27,7 +27,7 @@ import insightsTop from "../assets/insights-top.webp";
       </div>
     </div>
 
-    <figure class="relative mx-auto w-full max-w-[460px] lg:col-span-5 lg:max-w-none">
+    <figure class="relative w-full max-w-[460px] lg:col-span-5 lg:max-w-none">
       <div class="hero-photo relative aspect-[4/4.6] overflow-hidden rounded-[28px] ring-1 ring-paper/10">
         <Image
           src={heroPhoto}
@@ -46,7 +46,8 @@ import insightsTop from "../assets/insights-top.webp";
           alt="Print do painel de insights do Instagram do Vinicius: vídeos com 13 milhões, 6,8 milhões, 4,8 milhões e 4,5 milhões de visualizações"
           widths={[300, 480, 720]}
           sizes="(min-width: 1024px) 24vw, 55vw"
-          loading="eager"
+          loading="lazy"
+          decoding="async"
           class="w-full"
         />
       </div>
@@ -55,13 +56,17 @@ import insightsTop from "../assets/insights-top.webp";
   </div>
 </section>
 
-<script>
-  import { gsap, motionEnabled } from "@shared/motion/motion";
-  if (motionEnabled()) {
-    const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
-    tl.from(".hero-in", { y: 34, opacity: 0, duration: 1.1, stagger: 0.09 })
-      // Foto é a candidata a LCP: anima só escala, nunca opacidade.
-      .from(".hero-photo img", { scale: 1.08, duration: 1.6 }, 0)
-      .from(".hero-card", { y: 40, opacity: 0, duration: 1.1 }, 0.55);
+<style>
+  /* Entrada do hero em CSS: começa no primeiro paint, não depende do JS e não pisca em rede lenta.
+     Opacidade parte de 0.01 (nunca 0) para não atrasar o LCP; a foto anima só escala. */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-in { animation: hero-rise 1s var(--ease-out-expo) both; }
+    .hero-in:nth-child(2) { animation-delay: 70ms; }
+    .hero-in:nth-child(3) { animation-delay: 140ms; }
+    .hero-in:nth-child(4) { animation-delay: 210ms; }
+    .hero-photo :global(img) { animation: hero-zoom 1.6s var(--ease-out-expo) both; }
+    .hero-card { animation: hero-rise 1.1s var(--ease-out-expo) 450ms both; }
   }
-</script>
+  @keyframes hero-rise { from { opacity: 0.01; transform: translate3d(0, 28px, 0); } to { opacity: 1; transform: none; } }
+  @keyframes hero-zoom { from { transform: scale(1.08); } to { transform: none; } }
+</style>

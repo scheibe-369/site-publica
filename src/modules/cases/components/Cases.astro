@@ -14,7 +14,7 @@ const img = (f: string) => files[`../assets/${f}.webp`].default;
         O mesmo processo, <span class="hl">em perfis diferentes.</span>
       </h2>
       <p class="mt-5 max-w-[56ch] text-lg text-soft">
-        Perfis de clientes com quem o Vinicius trabalhou. Os números saem dos prints, no momento do registro.
+        Perfis de clientes que tiveram trabalho direto do Vinicius. O PUBLICA entrega o mesmo processo em formato de guia. Os números saem dos prints originais.
       </p>
     </div>
 
@@ -22,26 +22,27 @@ const img = (f: string) => files[`../assets/${f}.webp`].default;
     <ol class="mt-14 grid gap-6">
       {cases.map((c, i) => (
         <li class="case-card sticky" style={`top: calc(5.5rem + ${i} * 1.1rem)`}>
-          <article class="grid overflow-hidden rounded-[24px] border border-paper/10 bg-ink-3 shadow-[0_-20px_60px_-30px_rgb(0_0_0/0.9)] md:grid-cols-12">
-            <div class="bg-black md:col-span-7">
-              <Image
-                src={img(c.file)}
-                alt={c.alt}
-                widths={[480, 800, 1200]}
-                sizes="(min-width: 1024px) 680px, (min-width: 768px) 58vw, 92vw"
-                loading="lazy"
-                decoding="async"
-                class="size-full object-cover object-top"
-              />
-            </div>
-            <div class="flex flex-col justify-center p-7 md:col-span-5 md:p-10">
+          <article class="grid gap-8 overflow-hidden rounded-[24px] border border-paper/10 bg-ink-3 p-6 shadow-[0_-20px_60px_-30px_rgb(0_0_0/0.9)] md:p-9 lg:grid-cols-12 lg:items-center lg:gap-10">
+            <div class="lg:col-span-5">
               <p class="text-sm text-mute">{c.niche}</p>
-              <h3 class="mt-1 text-2xl font-extrabold">{c.name}</h3>
-              <p class="mt-6 num text-5xl font-black leading-none text-accent md:text-6xl">{c.headline}</p>
+              <h3 class="mt-1 text-2xl font-extrabold md:text-[1.7rem]">{c.name}</h3>
+              <p class="num mt-6 text-5xl font-black leading-none text-accent md:text-6xl">{c.headline}</p>
               <p class="mt-2 font-display font-bold text-paper">{c.unit}</p>
               <p class="mt-4 leading-relaxed text-soft">{c.detail}</p>
               <p class="mt-6 border-l-2 border-accent pl-4 text-[0.95rem] leading-relaxed text-paper/80">{c.lesson}</p>
             </div>
+            <figure class="lg:col-span-7">
+              <Image
+                src={img(c.file)}
+                alt={c.alt}
+                widths={[480, 760, 1100]}
+                sizes="(min-width: 1024px) 620px, 90vw"
+                loading="lazy"
+                decoding="async"
+                class="w-full rounded-2xl ring-1 ring-paper/10"
+              />
+              <figcaption class="mt-3 text-xs text-mute">Print original do perfil, no momento do registro.</figcaption>
+            </figure>
           </article>
         </li>
       ))}
@@ -57,8 +58,8 @@ const img = (f: string) => files[`../assets/${f}.webp`].default;
     </div>
 
     <p class="mt-10 max-w-[80ch] text-sm leading-relaxed text-mute">
-      Esses perfis tiveram trabalho direto do Vinicius. O PUBLICA entrega o mesmo processo em formato de guia, sem acompanhamento individual.
-      Os números mostram a audiência em cada print, no momento do registro. O resultado depende do tema, da execução e do público.
+      O PUBLICA não inclui acompanhamento individual. Os números mostram a audiência em cada print, no momento do registro.
+      O resultado depende do tema, da execução e do público.
     </p>
   </div>
 </section>

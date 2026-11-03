@@ -2,7 +2,6 @@
 import "@shared/styles/global.css";
 import { site } from "@shared/config/site";
 import montserratLatin from "@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2?url";
-import interLatin from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
 
 interface Props {
   title?: string;
@@ -47,7 +46,6 @@ const jsonLd = {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <link rel="preload" href={montserratLatin} as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href={interLatin} as="font" type="font/woff2" crossorigin />
 
     {!noindex && (
       <>
@@ -65,6 +63,7 @@ const jsonLd = {
         <meta name="twitter:title" content={site.ogTitle} />
         <meta name="twitter:description" content={site.ogDescription} />
         <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image:alt" content={site.ogImageAlt} />
         <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
       </>
     )}

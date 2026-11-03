@@ -8,13 +8,13 @@ import { pillars } from "../data/method";
       <h2 id="pilares-titulo" class="text-[2.2rem] font-extrabold leading-[1.04] md:text-5xl">
         Cinco pilares, aplicados na ordem.
       </h2>
-      <p class="mt-5 text-lg text-soft">Cada parte prepara a próxima. É o ciclo que o Vinicius repete no próprio perfil e no de clientes.</p>
+      <p class="mt-5 text-lg text-soft">Cada pilar prepara o próximo. É o ciclo que o Vinicius repete no perfil dele e no de clientes.</p>
     </div>
 
     <ol class="pillars relative mt-16 grid gap-10 md:grid-cols-5 md:gap-6">
       <!-- Trilho: preenche em vermelho conforme o scroll (mostra a ordem do método) -->
-      <div aria-hidden="true" class="absolute left-6 top-6 bottom-6 w-px bg-paper/12 md:left-6 md:right-6 md:top-6 md:bottom-auto md:h-px md:w-auto">
-        <div class="pillars-fill absolute inset-0 origin-top bg-accent md:origin-left"></div>
+      <div aria-hidden="true" class="absolute left-6 top-6 hidden h-px bg-paper/12 md:right-[calc((100%_-_6rem)/5_-_24px)] md:block">
+        <div class="pillars-fill absolute inset-0 origin-left bg-accent"></div>
       </div>
       {pillars.map((p) => (
         <li data-reveal class="relative pl-16 md:pl-0">
@@ -33,18 +33,12 @@ import { pillars } from "../data/method";
   import { gsap, ScrollTrigger, motionEnabled } from "@shared/motion/motion";
   if (motionEnabled()) {
     gsap.registerPlugin(ScrollTrigger);
-    const mm = gsap.matchMedia();
-    mm.add({ desktop: "(min-width: 768px)", mobile: "(max-width: 767px)" }, (ctx) => {
-      const desktop = ctx.conditions?.desktop;
-      gsap.fromTo(
-        ".pillars-fill",
-        desktop ? { scaleX: 0, scaleY: 1 } : { scaleY: 0, scaleX: 1 },
-        {
-          ...(desktop ? { scaleX: 1 } : { scaleY: 1 }),
-          ease: "none",
-          scrollTrigger: { trigger: ".pillars", start: "top 75%", end: "bottom 55%", scrub: 0.6 },
-        },
-      );
+    gsap.matchMedia().add("(min-width: 768px)", () => {
+      gsap.fromTo(".pillars-fill", { scaleX: 0 }, {
+        scaleX: 1,
+        ease: "none",
+        scrollTrigger: { trigger: ".pillars", start: "top 75%", end: "bottom 55%", scrub: 0.6 },
+      });
     });
   }
 </script>

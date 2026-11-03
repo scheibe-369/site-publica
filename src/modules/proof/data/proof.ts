@@ -1,7 +1,7 @@
 // Provas do perfil do Vinicius. Fonte: e-book PUBLICA 2.0, p.6 a p.8 (registros de novembro de 2026).
 export const stats = [
   { count: 494, prefix: "", unit: "mil", label: "seguidores orgânicos no Instagram" },
-  { count: 45, prefix: "+", unit: "milhões", label: "de visualizações em um único Reel" },
+  { count: 48, prefix: "+", unit: "milhões", label: "de visualizações somando só 10 Reels" },
   { count: 24, prefix: "+", unit: "milhões", label: "de contas alcançadas em 30 dias" },
   { count: 800, prefix: "+", unit: "alunos", label: "formados no curso Pintor Milionário" },
 ] as const;

@@ -19,7 +19,7 @@
   --color-mute: #8a8a8a;
   --color-soft: #b5b2ac;
   --color-accent: #ff3b1f;
-  --color-accent-deep: #d92c12;
+  --color-accent-deep: #c4260d; /* vermelho para texto pequeno sobre #F4F2EE (5,2:1) */
 
   --font-display: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
@@ -112,10 +112,9 @@
 }
 
 /* Revelação no scroll: só esconde quando o JS de motion está ativo (classe .motion no html). */
-.motion [data-reveal] { opacity: 0; transform: translate3d(0, 28px, 0); }
-.motion [data-reveal="fade"] { transform: none; }
+.motion [data-reveal]:not(.is-in) { opacity: 0; transform: translate3d(0, 28px, 0); }
 
 @media (prefers-reduced-motion: reduce) {
-  .motion [data-reveal] { opacity: 1 !important; transform: none !important; }
+  .motion [data-reveal]:not(.is-in) { opacity: 1 !important; transform: none !important; }
   .animate-marquee, [class*="animate-"] { animation: none !important; }
 }

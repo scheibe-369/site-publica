@@ -8,7 +8,7 @@ const SITE = process.env.SITE_URL ?? "https://metodo-publica.pages.dev";
 export default defineConfig({
   site: SITE,
   trailingSlash: "ignore",
-  build: { inlineStylesheets: "auto", format: "file" },
+  build: { inlineStylesheets: "always", format: "file" },
   image: { responsiveStyles: false },
   vite: { plugins: [tailwindcss()] },
 });

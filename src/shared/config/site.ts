@@ -6,7 +6,7 @@ export const site = {
   locale: "pt_BR",
   title: "Método PUBLICA | Cresça no Instagram sem anúncio",
   description:
-    "Configure sua conta do jeito certo e crie Reels que chegam a gente nova, sem anúncio. Guia de Vinicius Campana com edição com IA inclusa.",
+    "Configure sua conta do jeito certo e crie Reels que chegam a gente nova, sem anúncio. Guia de Vinicius Campana com a Máquina de Edição com IA.",
   ogTitle: "PUBLICA: não basta postar. Você precisa ser visto.",
   ogDescription:
     "O método de Vinicius Campana (494 mil seguidores orgânicos) para crescer no Instagram sem anúncio, com a Máquina de Edição com IA inclusa.",

@@ -10,7 +10,7 @@ export const machine = {
   ],
   benefits: [
     { icon: "pencil", title: "Roteiro com IA", body: "A ideia anotada no celular vira roteiro pronto para gravar: abertura, explicação, exemplo e fechamento." },
-    { icon: "scissors", title: "Edição com IA", body: "Cortes, ritmo e texto na tela, o que todo Reel precisa para ser assistido até o fim." },
+    { icon: "scissors", title: "Edição com IA", body: "Cortes, ritmo e texto na tela, do que todo Reel precisa para ser assistido até o fim." },
     { icon: "paperPlane", title: "Postagem automática", body: "O vídeo sai publicado no dia certo, mesmo na semana apertada." },
     { icon: "squaresFour", title: "Variedade sem recomeçar", body: "Mude o visual mantendo o mesmo assunto, com formatos diferentes para cada vídeo." },
   ] as { icon: IconName; title: string; body: string }[],

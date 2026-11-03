@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 import Icon from "@shared/ui/Icon.astro";
 import Button from "@shared/ui/Button.astro";
-import type { IconName } from "@shared/ui/icons";
 import { offer, checkoutHref } from "../data/offer";
 import cover from "@modules/product/assets/ebook-cover.webp";
 const external = Boolean(offer.checkoutUrl);
@@ -11,27 +10,30 @@ const external = Boolean(offer.checkoutUrl);
 <section id="oferta" aria-labelledby="oferta-titulo" class="section relative bg-paper text-ink">
   <div class="wrap grid gap-14 lg:grid-cols-12 lg:gap-16">
     <div class="lg:col-span-7">
-      <p class="eyebrow" data-reveal>Oferta</p>
+      <p class="eyebrow !text-accent-deep" data-reveal>Oferta</p>
       <h2 id="oferta-titulo" data-reveal class="mt-4 text-[2.4rem] font-extrabold leading-[1.02] md:text-[3.4rem]">
         Tudo que você recebe.
       </h2>
       <p data-reveal class="mt-5 max-w-[50ch] text-lg leading-relaxed text-ink/70">
-        E-book, aula em vídeo, banco de ideias, plano de 7 dias e Máquina de Edição. Em um só pacote.
+        E-book, aula em vídeo, banco de ideias, plano de ação de 7 dias e Máquina de Edição. Em um só pacote.
       </p>
 
+      <!-- Pilha de valor em formato de recibo: item, descrição e "incluso" alinhado à direita -->
       <ul class="mt-10 grid">
         {offer.items.map((it) => (
-          <li data-reveal class="flex gap-5 border-t border-ink/10 py-6">
-            <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-ink text-paper"><Icon name={it.icon as IconName} class="size-5" /></span>
+          <li data-reveal class="grid grid-cols-[1fr_auto] items-start gap-x-6 border-t border-ink/10 py-6">
             <div>
               <h3 class="text-xl font-extrabold tracking-[-0.02em]">{it.title}</h3>
               <p class="mt-1.5 leading-relaxed text-ink/70">{it.body}</p>
             </div>
+            <span class="mt-1 inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-1 font-display text-xs font-bold text-paper">
+              <Icon name="check" class="size-3.5 text-accent" /> Incluso
+            </span>
           </li>
         ))}
       </ul>
       <div data-reveal class="flex flex-col gap-2 border-t border-ink/10 pt-6 text-[0.95rem] text-ink/65">
-        <p class="flex items-center gap-2"><Icon name="clock" class="size-4 text-accent-deep" /> Tempo do material principal: {offer.consumeTime}.</p>
+        <p class="flex items-center gap-2"><Icon name="clock" class="size-4 text-accent-deep" /> E-book, aula, ideias e plano: {offer.consumeTime}.</p>
         <p>{offer.notIncluded}</p>
       </div>
     </div>

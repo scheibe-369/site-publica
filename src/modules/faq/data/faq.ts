@@ -2,10 +2,10 @@
 export const faq = [
   {
     q: "Estou começando do zero. Serve para mim?",
-    a: "Serve. O PUBLICA foi feito também para quem está começando, e você não precisa saber marketing digital: todo termo técnico vem explicado logo em seguida. Um dos casos do e-book saiu de 200 seguidores.",
+    a: "Serve. O PUBLICA foi feito também para quem está começando, e você não precisa saber marketing digital: todo termo técnico vem explicado na hora. Um dos casos do e-book saiu de 200 seguidores.",
   },
   {
-    q: "Já publico há tempo, mas meus vídeos não chegam a gente nova. O que muda?",
+    q: "Já publico há algum tempo, mas meus vídeos não chegam a gente nova. O que muda?",
     a: "Esse é um dos públicos principais do PUBLICA. A Parte 8 traz as situações mais comuns (poucas visualizações, gente saindo nos primeiros segundos, muita visita e pouco seguidor) e o que fazer em cada uma. A Parte 3 resolve o perfil que não convence quem chega.",
   },
   {
@@ -26,15 +26,15 @@ export const faq = [
   },
   {
     q: "O que é a Máquina de Edição? Preciso saber editar?",
-    a: "São aulas com o Matheus Fonseca, inclusas no PUBLICA. Você aprende a roteirizar, editar e publicar automaticamente seus vídeos com edição de IA, com mais de 12 formatos e 6 tipos de edição. Não precisa chegar sabendo editar: as aulas mostram o processo.",
+    a: "São aulas com o Matheus Fonseca, inclusas no PUBLICA. Você aprende a roteirizar, editar com IA e deixar a postagem no automático, com mais de 12 formatos e 6 tipos de edição. Não precisa chegar sabendo editar: as aulas mostram o processo.",
   },
   {
     q: "Tem grupo, suporte ou análise do meu perfil?",
-    a: "Não. O PUBLICA é um material para você aplicar no seu ritmo: e-book, aula em vídeo, banco de ideias, plano de 7 dias e Máquina de Edição. Não inclui grupo de WhatsApp, suporte individual, análise de perfil nem encontros ao vivo. Preferimos deixar isso claro antes da compra.",
+    a: "Não. O PUBLICA é um material para você aplicar no seu ritmo: e-book, aula em vídeo, banco de ideias, plano de ação de 7 dias e Máquina de Edição. Não inclui grupo de WhatsApp, suporte individual, análise de perfil nem encontros ao vivo. Preferimos deixar isso claro antes da compra.",
   },
   {
     q: "Como recebo o acesso?",
-    a: "Assim que o pagamento for confirmado, o acesso chega no e-mail usado na compra.",
+    a: "Assim que o pagamento for confirmado, o acesso é enviado para o e-mail usado na compra.",
   },
   {
     q: "E se eu comprar e não gostar?",
